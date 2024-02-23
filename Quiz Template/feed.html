@@ -1,0 +1,186 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+    
+        }
+        .image-container {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        
+        .chat {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+        }
+        
+        .user-message {
+            background-color: #f2f2f2;
+        }
+        
+        .bot-message {
+            background-color: #e2f0fc;
+        }
+        
+        .input-group {
+            margin-top: 10px;
+        }
+        
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="just2.png" alt="just2">
+    </div>
+    <div class="container">
+        <h2>Chatbot</h2>
+        <div class="chat" id="chat">
+            <div class="message bot-message">Hello! How can I assist you?</div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('userInput');
+            var message = userInput.value;
+
+            if (message.trim() !== '') {
+                addUserMessage(message);
+                botResponse(message);
+                userInput.value = '';
+            }
+        }
+
+        function addUserMessage(message) {
+            var chat = document.getElementById('chat');
+            var userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.textContent = message;
+            chat.appendChild(userMessage);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function addBotMessage(message) {
+            var chat = document.getElementById('chat');
+            var botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot-message');
+            botMessage.textContent = message;
+            chat.appendChild(botMessage);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function botResponse(message) {
+            // Replace this with your own bot logic
+            var response = 'Sorry, I am just a demo bot and developers are working on me.';
+            addBotMessage(response);
+        }
+    </script>
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Hover Example</title>
+    <style>
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #chatbot-container.active {
+            display: block;
+        }
+
+        #chatbot-trigger {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-container">
+        <!-- Your chatbot content goes here -->
+        <h1>Chatbot</h1>
+        <p>Welcome to the chatbot!</p>
+    </div>
+
+    <div id="chatbot-trigger">&#128172;</div>
+
+    <script>
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotTrigger = document.getElementById('chatbot-trigger');
+
+        chatbotTrigger.addEventListener('click', function() {
+            chatbotContainer.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

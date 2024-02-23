@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rating System with Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .rating-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rating-container .rating-stars {
+            display: flex;
+            font-size: 30px;
+        }
+        
+        .rating-container .rating-stars .star {
+            margin: 0 5px;
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .rating-container .rating-stars .star:hover,
+        .rating-container .rating-stars .star.selected {
+            color: orange;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rating System with Feedback Form</h2>
+        <div class="rating-container">
+            <div class="rating-stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+        </div>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Rating stars functionality
+        var stars = document.querySelectorAll('.rating-container .rating-stars .star');
+        var ratingValue = 0;
+
+        function highlightStars() {
+            stars.forEach(function(star) {
+                var starValue = star.getAttribute('data-value');
+                if (starValue <= ratingValue) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        stars.forEach(function(star) {
+            star.addEventListener('click', function() {
+                ratingValue = star.getAttribute('data-value');
+                highlightStars();
+            });
+        });
+
+        // Function to handle form submission
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get form data
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // You can perform further validation here if required
+
+            // Display submitted data (you can modify this part as needed)
+            alert('Name: ' + name + '\nEmail: ' + email + '\nRating: ' + ratingValue + '\nMessage: ' + message);
+
+            // Reset the form
+            document.getElementById('feedbackForm').reset();
+            ratingValue = 0;
+            highlightStars();
+        }
+
+        // Attach form submit event listener
+        document.getElementById('feedbackForm').addEventListener('submit', submitForm);
+    </script>
+</body>
+</html>
