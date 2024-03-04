@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #main-body {
+        padding: 0;
+        margin: 0;
+        padding-top: 10vh;
+        padding-left: 18%;
+        font-family: Arial, sans-serif;
+      }
+      #header {
+        width: 82%;
+        height: 10vh;
+        background-color: white;
+        z-index: 4;
+        top: 0;
+        position: fixed;
+
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        min-height: 42px;
+      }
+      #search-option {
+        width: 5%;
+        min-width: 35px;
+        min-height: 25px;
+      }
+      #search-svg {
+        height: 25px;
+      }
+      #notification {
+        width: 5%;
+        min-width: 35px;
+        min-height: 25px;
+        padding-top: 0.3%;
+      }
+      #notification-svg {
+        height: 25px;
+      }
+      #avatar {
+        width: 25px;
+        height: 25px;
+        margin-right: 2%;
+        background-color: black;
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 0;
+        min-width: 25px;
+        min-height: 25px;
+        display: flex;
+        align-items: center;
+      }
+      #avatar-jpg {
+        width: 100%;
+        /* min-width: 42px; */
+        height: 100%;
+        /* min-height: 42px; */
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 0;
+      }
+
+      #left-navbar {
+        height: 100vh;
+        width: 18%;
+        background-color: rgb(246, 248, 251);
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 180px;
+        min-height: 300px;
+      }
+      .left-navbar-option {
+        width: 100%;
+        padding-left: 12.5%;
+        padding-right: 25%;
+        /* border-right: solid;
+        border-width: 3px; */
+        margin-bottom: 1.5vh;
+        display: flex;
+        justify-content: center;
+        min-height: 30px;
+      }
+      .left-navbar-option:hover {
+        border-right: solid;
+        border-width: 4px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      .left-navbar-optiontext {
+        font-size: 12px;
+
+        display: flex;
+
+        align-items: center;
+        min-width: 56px;
+        width: 60%;
+      }
+      #dashboard-option {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: 10vh;
+        align-items: center;
+      }
+      #dashboard-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+      /* #dashboard-svg:hover{
+        background-color:rgb(103, 118, 249);
+        color: rgb(103, 118, 249) ;
+
+      } */
+
+      #courses-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      #dashboard-mycourses-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+      #schedule-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      #dashboard-schedule-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+      #resources-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+      }
+      #dashboard-resources-svg {
+        /* height: 20px; */
+        width: 20px;
+        margin-right: auto;
+      }
+      #settings-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+        /* background-color: brown; */
+        margin-top: auto;
+        margin-bottom: 15px;
+        align-items: center;
+      }
+      #dashboard-settings-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+      #middle-section {
+        width: 68%;
+        min-height: 600px;
+        margin-left: 2%;
+        /* background-color: red; */
+      }
+      #course-name {
+        width: 68%;
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 25px;
+        margin-right: 15.5%;
+        font-weight: 650;
+      }
+      #playlist-scroll-controls {
+        display: flex;
+        width: 100%;
+        user-select: none;
+        align-items: center;
+      }
+      #allvids {
+        width: 85%;
+        font-weight: 500;
+      }
+
+      #playlist-scroll-left {
+        margin-left: auto;
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        /* border-color:rgb(103, 118, 249) ; */
+        border-radius: 50%;
+      }
+
+      #playlist-scroll-left:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      #playlist-scroll-right {
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        margin-left: 7px;
+        border-radius: 50%;
+      }
+
+      #playlist-scroll-right:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+
+      #playlist-videos {
+        display: flex;
+        flex-direction: row;
+        height: 35vh;
+        min-height: 160px;
+        /* height: auto; */
+        width: 100%;
+        /* background-color: black; */
+        overflow: auto;
+        padding-left: 10px;
+        /* position: absolute; */
+        position: relative;
+        scroll-behavior: smooth;
+      }
+      /* #relative-blur{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 10%;
+        background-color: white;
+        opacity: 0.6;
+      } */
+      #playlist-videos::-webkit-scrollbar {
+        display: none;
+      }
+      #playlist-videos {
+        -ms-overflow-style: none;
+        scroolbar-width: none;
+      }
+      .playlist-thumbnails {
+        width: 30%;
+
+        height: 100%;
+        flex-shrink: 0;
+        /* background-color: rgb(56, 173, 173); */
+        margin-right: 2%;
+        min-width: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 200px;
+      }
+      .thumbnail-image-container {
+        height: 82%;
+      }
+      .thumbnail-jpg {
+        /* height: 100%; */
+        width: 100%;
+        border-radius: 12px;
+        user-select: none;
+      }
+      .thumbnail-title {
+        /* height: 14%; */
+        /* width: 90%; */
+        width: 100%;
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      #video-player {
+        width: 90%;
+        background-color: black;
+        height: auto;
+        margin: auto;
+      }
+      #video-playing {
+        width: 100%;
+      }
+      #resource-scroll-controls {
+        display: flex;
+        width: 100%;
+        user-select: none;
+        margin-top: 10px;
+        align-items: center;
+      }
+      #additional-resources {
+        width: 85%;
+        font-weight: 500;
+      }
+
+      #resource-scroll-left {
+        margin-left: auto;
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        border-radius: 50%;
+      }
+      #resource-scroll-left:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      #resource-scroll-right {
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        margin-left: 7px;
+        border-radius: 50%;
+      }
+      #resource-scroll-right:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      #resources {
+        display: flex;
+        flex-direction: row;
+        height: 8vh;
+        min-height: 110px;
+
+        width: 100%;
+        /* background-color: black; */
+        overflow: auto;
+        padding-left: 10px;
+
+        position: relative;
+        scroll-behavior: smooth;
+        margin: auto;
+        margin-top: 12px;
+        margin-bottom: 30px;
+      }
+      #resources::-webkit-scrollbar {
+        display: none;
+      }
+      #resources {
+        -ms-overflow-style: none;
+        scroolbar-width: none;
+      }
+      .resource-container {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: 1%;
+        align-items: center;
+        /* background-color: aqua; */
+        justify-content: center;
+        /* padding: auto; */
+        /* padding-left: 1%; */
+        border-radius: 7px;
+        min-width: 400px;
+        border-style: solid;
+        border-width: 3px;
+        /* border-radius: 50%; */
+        border-color: rgb(169, 178, 251);
+      }
+      .resource-image-container {
+        height: 80%;
+        /* margin: auto; */
+        width: 15%;
+        /* background-color: blue; */
+        min-width: 88px;
+      }
+
+      .resource-jpg {
+        height: 100%;
+        /* width: 100%; */
+      }
+      .resource-info {
+        /* display: flex;
+        flex-direction: column; */
+        width: 70%;
+        /* background-color: chocolate; */
+        height: 80%;
+        /* margin-top: auto; */
+        padding-left: 2%;
+      }
+      .resource-title {
+        height: 20%;
+        margin-bottom: 10px;
+        width: 90%;
+        margin-top: 4px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .resource-description {
+        height: 70%;
+        width: 90%;
+      }
+      .description-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .resource-download-button {
+        width: 12.5%;
+        /* background-color: brown; */
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .resource-download-button-image-wrapper {
+        height: 35px;
+        width: 35px;
+        border-style: solid;
+        border-width: 1.6px;
+        border-radius: 50%;
+        border-color: rgb(169, 178, 251);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .resource-download-button-icon {
+        height: 26px;
+        /* border-style: solid;
+        border-width: 1px;
+        border-radius: 50%;  */
+        /* width: 60%;
+        /* height: 70%; */
+      }
+      #right-section {
+        height: 90vh;
+        width: 23%;
+        background-color: rgb(246, 248, 251);
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        z-index: 4;
+        overflow: auto;
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+        min-width: 230px;
+        min-height: 300px;
+      }
+      #your-progress-text{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: left;
+        margin-top: 15px;
+        padding-left: 10px;
+      }
+      #progress-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+      }
+      #right-section-progress {
+        width: 90%;
+        
+        
+        color: rgb(103, 118, 249);
+        
+      }
+     
+      #right-section-accordion {
+        height: 60%;
+        overflow: auto;
+        width: 100%;
+        /* min-width: 260px; */
+      }
+      .accordions {
+        width: 90%;
+        margin: auto;
+
+      }
+      .accordion-dropdowns {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 7vh;
+        align-items: center;
+        min-height: 28px;
+      }
+
+      .active-dropdown,
+      .accordion-dropdowns:hover {
+        background-color: #ccc;
+      }
+
+      .accordion-indexes {
+        width: 10%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgb(103, 118, 249);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .accordion-title-textcontent {
+        width: 75%;
+        margin-left: 5%;
+      }
+      .accordion-dropdown-buttons {
+        width: 10%;
+      }
+      .accordion-panels {
+        display: none;
+        width: 100%;
+      }
+      #comment-section{
+        width: 100%;
+        /* background-color: blue; */
+        height: 40%;
+        overflow: auto;
+      }
+      #comment-section::-webkit-scrollbar {
+        display: none;
+      }
+      #enter-notebook-link{
+        width: 100%;
+        display: flex;
+        margin-top: 2.5%;
+        height: 20%;
+        
+      }
+      #link-input{
+        width: 90%;
+        margin: auto;
+        border-radius: 5px;
+        min-height: 35px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgb(103, 118, 249);
+        
+      }
+      #comment-textarea-container{
+        width: 100%;
+        display: flex;
+        margin-top: 2.5%;
+        height: 58%;
+
+      }
+      #comment-textarea{
+        width: 90%;
+        margin: auto;
+        border-radius: 5px;
+        resize: none;
+
+        min-height: 70px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgb(103, 118, 249);
+        
+      }
+      #submit-button-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 2%;
+        height: 15%;
+        margin-bottom: 20px;
+
+      }
+      #input-submit{
+        width: 40%;
+        background-color:rgb(103, 118, 249);;
+        border-radius: 4px;
+        /* margin: auto; */
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgb(103, 118, 249);
+        border-radius: 4px;
+
+      }
+
+      @media only screen and (max-height: 400px) {
+        #main-body {
+          padding-top: 42px;
+        }
+      }
+    </style>
+  </head>
+  <body id="main-body">
+    <div id="header">
+      <div id="course-name">
+        Fluid Mechanics, Bernoulli Equation,theory & it's applications.
+      </div>
+      <div id="search-option">
+        <img id="search-svg" src="../srcimages/search.svg" />
+      </div>
+      <div id="notification">
+        <img id="notification-svg" src="../srcimages/bell.svg" />
+      </div>
+      <div id="avatar">
+        <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
+      </div>
+    </div>
+    <div id="left-navbar">
+      <div id="dashboard-option" class="left-navbar-option">
+        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+        <div class="left-navbar-optiontext">Dashboard</div>
+      </div>
+      <div id="courses-option" class="left-navbar-option">
+        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+        <div class="left-navbar-optiontext">My courses</div>
+      </div>
+      <div id="schedule-option" class="left-navbar-option">
+        <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+        <div class="left-navbar-optiontext">Schedule</div>
+      </div>
+      <div id="resources-option" class="left-navbar-option">
+        <img
+          id="dashboard-resources-svg"
+          src="../srcimages/open-folder-outline-icon.svg"
+        />
+        <div class="left-navbar-optiontext">Resources</div>
+      </div>
+      <div id="promotional-card"></div>
+      <div id="settings-option" class="left-navbar-option">
+        <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+        <div class="left-navbar-optiontext">Settings</div>
+      </div>
+    </div>
+    <div id="middle-section">
+      <!-- <div id="course-name">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Possimus, distinctio.
+      </div> -->
+      <div id="playlist-scroll-controls">
+        <div id="allvids">All videos</div>
+        <img id="playlist-scroll-left" src="../srcimages/chevron-left.svg" />
+        <img id="playlist-scroll-right" src="../srcimages/chevron-right.svg" />
+      </div>
+      <div id="playlist-videos">
+        <!-- <div id="relative-blur"></div> -->
+        <div id="thumbnail1" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet</div>
+        </div>
+        <div id="thumbnail2" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail3" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail4" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+        </div>
+        <div id="thumbnail5" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+        </div>
+        <div id="thumbnail6" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail7" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail8" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail9" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+        </div>
+        <div id="thumbnail10" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+      <div id="video-player">
+        <video
+          id="video-playing"
+          src="../srcvideos/video1.mp4"
+          controls
+        ></video>
+      </div>
+      <div id="resource-scroll-controls">
+        <div id="additional-resources">Additional Resources</div>
+        <img id="resource-scroll-left" src="../srcimages/chevron-left.svg" />
+        <img id="resource-scroll-right" src="../srcimages/chevron-right.svg" />
+      </div>
+      <div id="resources">
+        <div id="resource1" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resource2" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resource3" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resource4" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resource5" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resource6" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="resource7" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="resource8" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="resource9" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="resource10" class="resource-container">
+          <div class="resource-image-container">
+            <img class="resource-jpg" src="../srcimages/resources.png" />
+            <!-- <img class="resource-jpg" src="../srcimages/Comrade Stalin.jpg" /> -->
+          </div>
+          <div class="resource-info">
+            <div class="resource-title">Lorem ipsum dolor sit amet</div>
+            <div class="resource-description">
+              <div class="description-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolorum atque quam provident quibusdam iusto sit laboriosam, rem
+                nostrum veniam blanditiis. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore perspiciatis aspernatur
+                iste, accusantium nemo eligendi error corrupti voluptate,
+                dolores adipisci sunt ad cumque, autem enim inventore?
+                Laboriosam fugiat nemo debitis?
+              </div>
+            </div>
+          </div>
+          <div class="resource-download-button">
+            <div class="resource-download-button-image-wrapper">
+              <img
+                class="resource-download-button-icon"
+                src="../srcimages/cloud-download.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="right-section">
+      <div id="your-progress-text">Your Progress</div>
+      <div id="progress-container">
+        <progress id="right-section-progress" value="35" max="100"></progress>
+      </div>
+      <div id="right-section-accordion">
+        <div class="accordions">
+          <div id="accordion-dropdown1" class="accordion-dropdowns">
+            <div class="accordion-indexes">1</div>
+
+            <div class="accordion-title-textcontent">Title1</div>
+            <div class="accordion-dropdown-buttons">+</div>
+          </div>
+
+          <div id="accordion-panel1" class="accordion-panels">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            natus officiis esse fuga minus molestiae nesciunt iusto sequi harum
+            maxime.
+          </div>
+        </div>
+
+        <div class="accordions">
+          <div id="accordion-dropdown2" class="accordion-dropdowns">
+            <div class="accordion-indexes">2</div>
+
+            <div class="accordion-title-textcontent">Title1</div>
+            <div class="accordion-dropdown-buttons">+</div>
+          </div>
+
+          <div id="accordion-panel2" class="accordion-panels">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            natus officiis esse fuga minus molestiae nesciunt iusto sequi harum
+            maxime.
+          </div>
+        </div>
+
+        <div class="accordions">
+          <div id="accordion-dropdown3" class="accordion-dropdowns">
+            <div class="accordion-indexes">3</div>
+
+            <div class="accordion-title-textcontent">Title1</div>
+            <div class="accordion-dropdown-buttons">+</div>
+          </div>
+
+          <div id="accordion-panel3" class="accordion-panels">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            natus officiis esse fuga minus molestiae nesciunt iusto sequi harum
+            maxime.
+          </div>
+        </div>
+
+        <div class="accordions">
+          <div id="accordion-dropdown4" class="accordion-dropdowns">
+            <div class="accordion-indexes">4</div>
+
+            <div class="accordion-title-textcontent">Title1</div>
+            <div class="accordion-dropdown-buttons">+</div>
+          </div>
+
+          <div id="accordion-panel4" class="accordion-panels">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            natus officiis esse fuga minus molestiae nesciunt iusto sequi harum
+            maxime.
+          </div>
+        </div>
+
+        <div class="accordions">
+          <div id="accordion-dropdown5" class="accordion-dropdowns">
+            <div class="accordion-indexes">5</div>
+
+            <div class="accordion-title-textcontent">Title1</div>
+            <div class="accordion-dropdown-buttons">+</div>
+          </div>
+
+          <div id="accordion-panel5" class="accordion-panels">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            natus officiis esse fuga minus molestiae nesciunt iusto sequi harum
+            maxime.
+          </div>
+        </div>
+      </div>
+      <div id="comment-section">
+      <form>
+        <div id="enter-notebook-link">
+          <input id="link-input" type="text" placeholder="Enter notebook link">
+        </div>
+        <div id="comment-textarea-container">
+          <textarea id="comment-textarea"></textarea>
+        </div>
+        <div id="submit-button-container">
+          <input id="input-submit" type="submit" value="Comment">
+        </div>
+      </form>
+    </div>
+    </div>
+    <script>
+      let playlistbuttonleft = document.getElementById("playlist-scroll-left");
+      let playlistbuttonright = document.getElementById(
+        "playlist-scroll-right"
+      );
+
+      function scrollright() {
+        document.getElementById("playlist-videos").scrollLeft += 110;
+        this.style.backgroundColor = rgb(169, 178, 251);
+      }
+      function scrollleft() {
+        document.getElementById("playlist-videos").scrollLeft -= 110;
+        this.style.backgroundColor = rgb(169, 178, 251);
+      }
+      playlistbuttonleft.addEventListener("click", scrollleft);
+      playlistbuttonright.addEventListener("click", scrollright);
+
+      let resourcebuttonleft = document.getElementById("resource-scroll-left");
+      let resourcebuttonright = document.getElementById(
+        "resource-scroll-right"
+      );
+
+      function scrollrightresource() {
+        document.getElementById("resources").scrollLeft += 190;
+        this.style.backgroundColor = rgb(169, 178, 251);
+      }
+      function scrollleftresource() {
+        document.getElementById("resources").scrollLeft -= 190;
+        this.style.backgroundColor = rgb(169, 178, 251);
+      }
+
+      resourcebuttonleft.addEventListener("click", scrollleftresource);
+      resourcebuttonright.addEventListener("click", scrollrightresource);
+
+      document
+        .getElementById("playlist-videos")
+        .addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+        });
+      // document
+      // .getElementById("main-body")
+      // .addEventListener("contextmenu", (e) => {
+      //   e.preventDefault();
+      // });
+      let accordiondropdownarray = document.getElementsByClassName(
+        "accordion-dropdowns"
+      );
+      let accitr;
+      for (accitr = 0; accitr < accordiondropdownarray.length; accitr++) {
+        accordiondropdownarray[accitr].addEventListener(
+          "click",
+          dropcloseaccordion
+        );
+      }
+
+      let accordionactive = [];
+      function dropcloseaccordion() {
+        if (accordionactive[0]) {
+          accordionactive[0].style.display = "none";
+          accordionactive.pop();
+        }
+        let panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+          this.childNodes[0].childNodes[1].innerText = "-";
+          // this.classList.remove("active-dropdown");
+        } else if (panel.style.display == "none") {
+          panel.style.display = "block";
+          accordionactive[0] = panel;
+          // this.classList.add("active-dropdown");
+        } else {
+          panel.style.display = "block";
+          accordionactive[0] = panel;
+        }
+      }
+    </script>
+  </body>
+</html>

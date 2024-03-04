@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detubez</title>
+    <style>
+        #main-body{
+            padding: 0;
+            margin: 0;
+        }
+        #flexbox-grid{
+            display: flex;
+            width: 100vw;
+            flex-direction: row;
+            flex-wrap: wrap; 
+        }
+        .boxes1{
+            background-color:red;
+         
+        }
+        .boxes2{
+            background-color:rgb(26, 255, 0);   
+        }
+        @media only screen and (max-width:575px){
+            .boxes1{
+                width:98vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }
+            .boxes2{
+                width:98vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+            }
+        }
+        @media only screen and (min-width:575px){
+            .boxes1{
+                width:48vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }
+            .boxes2{
+                width:48vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }    
+        }
+        @media only screen and (min-width:768px){
+            
+        }
+        @media only screen and (min-width:950px){
+            .boxes1{
+                width:31vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }
+            .boxes2{
+                width:31vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }  
+        }
+        @media only screen and (min-width:1200px){
+            .boxes1{
+                width:23vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            }
+            .boxes2{
+                width:23vw;
+                margin-top: 1vh;
+                margin-left: 1vw;
+                margin-right: 1vw;
+
+            } 
+            
+        }
+    </style>
+</head>
+<body id="main-body">
+    <div id="header"></div>
+    <div id="login"></div>
+    <div id="flexbox-grid">
+        <div id="a" class="boxes1">a</div>
+        <div id="b" class="boxes2">b</div>
+        <div id="c" class="boxes1">c</div>
+        <div id="d" class="boxes2">d</div>
+        <div id="e" class="boxes1">e</div>
+        <div id="f" class="boxes2">f</div>
+        <div id="g" class="boxes1">g</div>
+        <div id="h" class="boxes2">h</div>
+        <div id="i" class="boxes1">i</div>
+        <div id="j" class="boxes2">j</div>
+        <div id="k" class="boxes1">k</div>
+        <div id="l" class="boxes2" >l</div>
+        <div id="m" class="boxes1">m</div>
+        <div id="n" class="boxes2">n</div>
+        <div id="o" class="boxes1">o</div>
+        <div id="p" class="boxes2">p</div> 
+    </div>  
+</body>
+</html>

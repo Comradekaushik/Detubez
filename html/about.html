@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #main-body {
+        padding-top: 10vh;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+      }
+      #header {
+        width: 100%;
+        position: fixed;
+        background-color: black;
+        color: white;
+        height: 10vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        z-index: 100;
+      }
+      #about-us {
+        background-color: rgb(0, 229, 255);
+        width: 70%;
+      }
+      #contact-us {
+        background-color: green;
+        width: 30%;
+      }
+      #section-1-slideshow {
+        height: 40vh;
+        width: 100%;
+      }
+      .sec1divs {
+        /* background-color: black;
+        color: aqua; */
+        height: 100%;
+        width: 98%;
+        margin: auto;
+        margin-top: 1vh;
+        border-style: solid;
+        border-radius: 15px;
+      }
+
+      .hidesec1divs {
+        display: none;
+      }
+      .displaysec1divs {
+        display: block;
+      }
+      #section-2-slideshow {
+        height: 40vh;
+        width: 100%;
+        margin-top: 60vh;
+      }
+      .sec2divs {
+        /* background-color: black;
+        color: aqua; */
+        height: 100%;
+        width: 98%;
+        margin: auto;
+        margin-top: 1vh;
+        border-style: solid;
+        border-radius: 12px;
+      }
+      #middle-section {
+      }
+
+      #div1 {
+        /* height:50vh; */
+        height: auto;
+        width: 100%;
+        background-color: black;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-left: 2%;
+        padding-right: 2%;
+      }
+      .div1-parts {
+        height: 40vh;
+        width: 44%;
+      }
+      #div1-part1 {
+        background-color: blueviolet;
+        margin-left: 4%;
+      }
+      #div1-part2 {
+        background-color: rgb(226, 43, 141);
+        margin-left: 4%;
+      }
+      #div1-message {
+        width: 96%;
+        margin: auto;
+        background-color: orange;
+        height: 50vh;
+      }
+      #div1-stats {
+        width: 96%;
+        margin: auto;
+        background-color: rgb(255, 21, 0);
+        height: 50vh;
+      }
+
+      #div2 {
+        /* height:50vh; */
+        height: auto;
+        width: 96%;
+        /* background-color: yellow; */
+        background-color: transparent;
+        position: absolute;
+        /* top: 90%; */
+        top: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 4vh;
+        z-index:60;
+      }
+      .div2-parts {
+        background-color: black;
+        width: 44%;
+        height: 80vh;
+      }
+      #div2-part1 {
+        margin-left: 5%;
+        margin-right: 2%;
+      }
+      #div2-part2 {
+      }
+      #div3 {
+        /* margin-top: 46vh; */
+        height: 50vh;
+        width: 50vw;
+        background-color: rgb(13, 255, 0);
+      }
+      @media only screen and (max-width: 600px) {
+        #about-us {
+          width: 60%;
+        }
+        #contact-us {
+          width: 40%;
+        }
+      }
+      @media only screen and (min-width: 600px) {
+      }
+      @media only screen and (min-width: 768px) {
+      }
+      @media only screen and (min-width: 992px) {
+      }
+      @media only screen and (min-width: 1200px) {
+      }
+    </style>
+  </head>
+  <body id="main-body">
+    <div id="header">
+      <div id="about-us"></div>
+      <div id="contact-us"></div>
+    </div>
+    <div id="section-1-slideshow">
+      <div id="sec1div1" class="sec1divs" style="background-color: blue">
+        <div>1</div>
+      </div>
+      <div
+        id="sec1div2"
+        class="sec1divs"
+        style="background-color: rgb(9, 255, 0)"
+      >
+        <div>2</div>
+      </div>
+      <div
+        id="sec1div3"
+        class="sec1divs"
+        style="background-color: rgb(255, 0, 4)"
+      >
+        <div>3</div>
+      </div>
+      <div
+        id="sec1div4"
+        class="sec1divs"
+        style="background-color: rgb(0, 0, 0)"
+      >
+        <div>4</div>
+      </div>
+      <div
+        id="sec1div5"
+        class="sec1divs"
+        style="background-color: rgb(242, 255, 0)"
+      >
+        <div>5</div>
+      </div>
+      <div
+        id="sec1div6"
+        class="sec1divs"
+        style="background-color: rgb(255, 128, 0)"
+      >
+        <div>6</div>
+      </div>
+    </div>
+    <div id="middle-section">
+      <div></div>
+      <div></div>
+    </div>
+
+    <div></div>
+
+    <div id="aboutus-read1"></div>
+
+    <div id="aboutus-read2"></div>
+    <div id="div1">
+      <div id="div1-part1" class="div1-parts"></div>
+      <div id="div1-part2" class="div1-parts"></div>
+      <div id="div1-message">h</div>
+      <div id="div1-stats">h</div>
+
+      <div id="div2">
+        <div id="div2-part1" class="div2-parts"></div>
+        <div id="div2-part2" class="div2-parts"></div>
+      </div>
+    </div>
+    <div id="section-2-slideshow">
+      <div id="sec2div1" class="sec2divs" style="background-color: blue">
+        <div>....7</div>
+      </div>
+      <div
+        id="sec2div2"
+        class="sec2divs"
+        style="background-color: rgb(9, 255, 0)"
+      >
+        <div>....8</div>
+      </div>
+      <div
+        id="sec2div3"
+        class="sec2divs"
+        style="background-color: rgb(255, 0, 4)"
+      >
+        <div>....9</div>
+      </div>
+      <div
+        id="sec2div4"
+        class="sec2divs"
+        style="background-color: rgb(0, 0, 0)"
+      >
+        <div>....10</div>
+      </div>
+      <div
+        id="sec2div5"
+        class="sec2divs"
+        style="background-color: rgb(242, 255, 0)"
+      >
+        <div>....11</div>
+      </div>
+      <div
+        id="sec2div6"
+        class="sec2divs"
+        style="background-color: rgb(255, 128, 0)"
+      >
+        <div>....12</div>
+      </div>
+    </div>
+    <script>
+      let numslides = document.getElementsByClassName("sec1divs").length;
+      let currentslide = 0;
+      let itr = 0;
+      function slideshow() {
+        for (itr = 0; itr < numslides; itr++) {
+          document.getElementsByClassName("sec1divs")[itr].style.display =
+            "none";
+        }
+
+        document.getElementsByClassName("sec1divs")[
+          currentslide
+        ].style.display = "block";
+        if (currentslide == numslides - 1) {
+          currentslide = 0;
+        } else {
+          currentslide++;
+        }
+        setTimeout(slideshow, 5000);
+      }
+
+      let numslides2 = document.getElementsByClassName("sec2divs").length;
+      let currentslide2 = 0;
+      let itr2 = 0;
+      function slideshow2() {
+        for (itr2 = 0; itr2 < numslides2; itr2++) {
+          document.getElementsByClassName("sec2divs")[itr2].style.display =
+            "none";
+        }
+
+        document.getElementsByClassName("sec2divs")[
+          currentslide2
+        ].style.display = "block";
+        if (currentslide2 == numslides2 - 1) {
+          currentslide2 = 0;
+        } else {
+          currentslide2++;
+        }
+        setTimeout(slideshow2, 5000);
+      }
+      window.onload = slideshows;
+      function slideshows() {
+        slideshow();
+        slideshow2();
+      }
+    </script>
+  </body>
+</html>

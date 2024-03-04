@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #main-body {
+        padding-top: 10vh;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        min-height: 2000px;
+        overflow-x: auto;
+      }
+      #header {
+        background-color: red;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 10vh;
+        z-index: 100;
+        display: flex;
+        flex-direction: row;
+        padding-left: 15vw;
+      }
+      #hdiv1 {
+        background-color: rgb(255, 0, 81);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 101;
+        height: 10vh;
+        width: 15vw;
+        min-width: 110px;
+      }
+      #hdiv2 {
+        background-color: rgb(251, 255, 0);
+        width: 25vw;
+        height: 10vh;
+      }
+      #hdiv3 {
+        background-color: blue;
+        width: 25vw;
+        height: 10vh;
+      }
+      #hdiv4 {
+        background-color: rgb(17, 255, 0);
+        width: 25vw;
+        height: 10vh;
+      }
+
+      @media only screen and (max-width: 600px) {
+        #hdiv1 {
+          width: 35vw;
+        }
+        #header {
+          padding-left: 35vw;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        #hdiv1 {
+          width: 25vw;
+        }
+        #header {
+          padding-left: 25vw;
+        }
+      }
+      @media only screen and (min-width: 680px) {
+        #hdiv1 {
+          width: 20vw;
+        }
+        #header {
+          padding-left: 20vw;
+        }
+      }
+      @media only screen and (min-width: 768px) {
+      }
+      @media only screen and (min-width: 992px) {
+        #hdiv1 {
+          width: 15vw;
+        }
+        #header {
+          padding-left: 15vw;
+        }
+      }
+      @media only screen and (min-width: 1200px) {
+      }
+    </style>
+  </head>
+  <body id="main-body">
+    <div id="header">
+      <div id="hdiv1"></div>
+      <div id="hdiv2"></div>
+      <div id="hdiv3"></div>
+      <div id="hdiv4"></div>
+    </div>
+
+    <script></script>
+  </body>
+</html>
