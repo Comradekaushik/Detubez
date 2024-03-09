@@ -11,15 +11,17 @@
       #main-body {
         padding: 0;
         margin: 0;
-        padding-top: 10vh;
+        padding-top: 11vh;
         padding-left: 18%;
         font-family: Arial, sans-serif;
       }
       #header {
-        width: 82%;
+        /* width: 82%; */
+        width: 100%;
         height: 10vh;
-        background-color: white;
-        z-index: 4;
+        /* background-color: white; */
+        background-color: rgb(169, 178, 251);
+        z-index: 7;
         top: 0;
         position: fixed;
 
@@ -29,6 +31,15 @@
         align-items: center;
         justify-content: right;
         min-height: 42px;
+      }
+      #logo-container{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+      }
+      #logo-png{
+        height: 80%;
       }
       #search-option {
         width: 5%;
@@ -77,13 +88,14 @@
         position: fixed;
         left: 0;
         top: 0;
+        bottom: 0;
 
         z-index: 5;
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-width: 180px;
-        min-height: 300px;
+        min-width: 170px;
+        min-height: 220px;
       }
       .left-navbar-option {
         width: 100%;
@@ -104,6 +116,11 @@
         color: rgb(103, 118, 249);
         transition: 0.2s;
       }
+      .left-navbar-svg-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .left-navbar-optiontext {
         font-size: 12px;
 
@@ -112,6 +129,7 @@
         align-items: center;
         min-width: 56px;
         width: 60%;
+        margin-left: 5px;
       }
       #dashboard-option {
         display: flex;
@@ -194,6 +212,7 @@
         width: 100%;
         user-select: none;
         align-items: center;
+        
       }
       #allvids {
         width: 85%;
@@ -277,7 +296,9 @@
       }
       .thumbnail-jpg {
         /* height: 100%; */
-        width: 100%;
+        /* width: 100%; */
+        max-width: 100%;
+        max-height: 100%;
         border-radius: 12px;
         user-select: none;
       }
@@ -299,7 +320,9 @@
         margin: auto;
       }
       #video-playing {
-        width: 100%;
+        /* width: 100%; */
+        max-width: 100%;
+        max-height: 100%;
       }
       #resource-scroll-controls {
         display: flex;
@@ -461,7 +484,7 @@
         position: fixed;
         right: 0;
         top: 10vh;
-        z-index: 4;
+        z-index: 2;
         overflow: auto;
         /* background-color: green; */
         display: flex;
@@ -471,7 +494,7 @@
         min-width: 230px;
         min-height: 300px;
       }
-      #your-progress-text{
+      #your-progress-text {
         display: flex;
         width: 100%;
         align-items: center;
@@ -479,20 +502,17 @@
         margin-top: 15px;
         padding-left: 10px;
       }
-      #progress-container{
+      #progress-container {
         width: 100%;
         display: flex;
         justify-content: center;
-        
       }
       #right-section-progress {
         width: 90%;
-        
-        
+
         color: rgb(103, 118, 249);
-        
       }
-     
+
       #right-section-accordion {
         height: 60%;
         overflow: auto;
@@ -502,7 +522,6 @@
       .accordions {
         width: 90%;
         margin: auto;
-
       }
       .accordion-dropdowns {
         display: flex;
@@ -540,7 +559,7 @@
         display: none;
         width: 100%;
       }
-      #comment-section{
+      #comment-section {
         width: 100%;
         /* background-color: blue; */
         height: 40%;
@@ -549,14 +568,13 @@
       #comment-section::-webkit-scrollbar {
         display: none;
       }
-      #enter-notebook-link{
+      #enter-notebook-link {
         width: 100%;
         display: flex;
         margin-top: 2.5%;
         height: 20%;
-        
       }
-      #link-input{
+      #link-input {
         width: 90%;
         margin: auto;
         border-radius: 5px;
@@ -564,16 +582,14 @@
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
-        
       }
-      #comment-textarea-container{
+      #comment-textarea-container {
         width: 100%;
         display: flex;
         margin-top: 2.5%;
         height: 58%;
-
       }
-      #comment-textarea{
+      #comment-textarea {
         width: 90%;
         margin: auto;
         border-radius: 5px;
@@ -583,41 +599,198 @@
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
-        
       }
-      #submit-button-container{
+      #submit-button-container {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-top: 2%;
         height: 15%;
         margin-bottom: 20px;
-
       }
-      #input-submit{
+      #input-submit {
         width: 40%;
-        background-color:rgb(103, 118, 249);;
+        background-color: rgb(103, 118, 249);
         border-radius: 4px;
         /* margin: auto; */
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
         border-radius: 4px;
-
       }
-
       @media only screen and (max-height: 400px) {
         #main-body {
-          padding-top: 42px;
+          padding-top: 45px;
         }
+        #dashboard-option {
+        
+
+        margin-top: 45px;
+        
+      }
+      }
+
+      @media only screen and (max-width: 600px) {
+      }
+      @media only screen and (min-width: 600px) {
+      }
+
+      @media only screen and (max-width: 768px) {
+      }
+      @media only screen and (min-width: 768px) {
+      }
+
+      @media only screen and (max-width: 992px) {
+        #main-body {
+          padding-left: 80px;
+        }
+        #header {
+          /* width: calc(100% - 80px); */
+          width: 100%;
+        }
+        #right-section {
+          display: none;
+        }
+        #course-name {
+          display: none;
+        }
+        #left-navbar {
+          min-width: 20px;
+          width: 70px;
+          
+        }
+        .left-navbar-option {
+          width: 100%;
+
+          margin-bottom: 2.5vh;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .left-navbar-option:active {
+          border-right: solid;
+          border-width: 4px;
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
+          color: rgb(103, 118, 249);
+          transition: 0.2s;
+        }
+        .left-navbar-svg-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .left-navbar-optiontext {
+          font-size: 11px;
+
+          display: flex;
+
+          align-items: center;
+          justify-content: center;
+          min-width: 56px;
+          width: 60%;
+          margin-left: 0;
+          font-weight: 400;
+          font-family: Roboto, Arial, sans-serif;
+          margin-top: 2px;
+        }
+        #dashboard-option {
+          display: flex;
+          flex-direction: column;
+
+          margin-top: 47px;
+          align-items: center;
+          /* justify-content: center; */
+        }
+        #dashboard-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #courses-option {
+          /* width: 50%; */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-mycourses-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #schedule-option {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-schedule-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #resources-option {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-resources-svg {
+          width: 20px;
+        }
+        #settings-option {
+          /* width: 50%; */
+          display: flex;
+          flex-direction: column;
+          /* background-color: brown; */
+          margin-top: auto;
+          margin-bottom: 15px;
+          align-items: center;
+        }
+        #dashboard-settings-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #middle-section {
+          /* width: calc(100% - 80px); */
+          width: 95%;
+          min-height: 600px;
+          margin-left: 2%;
+          margin-top: 15px;
+          /* background-color: red; */
+        }
+        #playlist-videos {
+          display: flex;
+          flex-direction: row;
+          height: 40vh;
+          min-height: 160px;
+          /* height: auto; */
+          width: 100%;
+          /* background-color: black; */
+          overflow: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          
+          border-style: solid;
+          border-width: 2px;
+          border-radius: 8px;
+          border-color: rgb(169, 178, 251);
+          margin-top: 10px;
+          margin-bottom: 15px;
+          /* position: absolute; */
+          position: relative;
+          scroll-behavior: smooth;
+        }
+      }
+      @media only screen and (min-width: 992px) {
+      }
+      @media only screen and (min-width: 1200px) {
       }
     </style>
   </head>
   <body id="main-body">
     <div id="header">
-      <div id="course-name">
+      <!-- <div id="course-name">
         Fluid Mechanics, Bernoulli Equation,theory & it's applications.
-      </div>
+      </div> -->
+      <div id="logo-container"><img id="logo-png" src="../srcimages/Detubez-logos_black.png"></div>
       <div id="search-option">
         <img id="search-svg" src="../srcimages/search.svg" />
       </div>
@@ -630,27 +803,39 @@
     </div>
     <div id="left-navbar">
       <div id="dashboard-option" class="left-navbar-option">
-        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+        </div>
         <div class="left-navbar-optiontext">Dashboard</div>
       </div>
       <div id="courses-option" class="left-navbar-option">
-        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
-        <div class="left-navbar-optiontext">My courses</div>
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+        </div>
+
+        <div class="left-navbar-optiontext">courses</div>
       </div>
       <div id="schedule-option" class="left-navbar-option">
-        <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+        </div>
+
         <div class="left-navbar-optiontext">Schedule</div>
       </div>
       <div id="resources-option" class="left-navbar-option">
-        <img
-          id="dashboard-resources-svg"
-          src="../srcimages/open-folder-outline-icon.svg"
-        />
+        <div class="left-navbar-svg-container">
+          <img
+            id="dashboard-resources-svg"
+            src="../srcimages/open-folder-outline-icon.svg"
+          />
+        </div>
         <div class="left-navbar-optiontext">Resources</div>
       </div>
       <div id="promotional-card"></div>
       <div id="settings-option" class="left-navbar-option">
-        <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+        </div>
         <div class="left-navbar-optiontext">Settings</div>
       </div>
     </div>
@@ -1107,18 +1292,22 @@
         </div>
       </div>
       <div id="comment-section">
-      <form>
-        <div id="enter-notebook-link">
-          <input id="link-input" type="text" placeholder="Enter notebook link">
-        </div>
-        <div id="comment-textarea-container">
-          <textarea id="comment-textarea"></textarea>
-        </div>
-        <div id="submit-button-container">
-          <input id="input-submit" type="submit" value="Comment">
-        </div>
-      </form>
-    </div>
+        <form>
+          <div id="enter-notebook-link">
+            <input
+              id="link-input"
+              type="text"
+              placeholder="Enter notebook link"
+            />
+          </div>
+          <div id="comment-textarea-container">
+            <textarea id="comment-textarea"></textarea>
+          </div>
+          <div id="submit-button-container">
+            <input id="input-submit" type="submit" value="Comment" />
+          </div>
+        </form>
+      </div>
     </div>
     <script>
       let playlistbuttonleft = document.getElementById("playlist-scroll-left");

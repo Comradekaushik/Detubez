@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #main-body {
+      padding: 0;
+      margin: 0;
+      /* padding-top: 80vh; */
+    }
+
+    #main-header {
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: grey;
+      min-height: 35px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(169, 178, 251);
+      z-index: 25;
+    }
+
+    #hamburger-icon-container {
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: auto;
+    }
+
+    #hamburger-icon {
+      height: 25px;
+    }
+
+    #detubez-logo {
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: auto;
+    }
+
+    #logo-jpg {
+      height: 80%;
+      margin-right: auto;
+    }
+
+    #search-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1.5vw;
+    }
+
+    #search-svg {
+      height: 25px;
+      width: 25px;
+    }
+
+    #avatar-container {
+      height: 100%;
+      margin-right: 1.5vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #avatar-jpg {
+      max-height: 80%;
+      max-width: 100%;
+      border-radius: 50%;
+    }
+
+
+
+
+
+
+
+
+
+
+    #left-navbar {
+      height: 100vh;
+      width: 18%;
+      background-color: rgb(246, 248, 251);
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      z-index:16;
+      /*display: flex;*/
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      min-width: 170px;
+      min-height: 220px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .left-navbar-option {
+      width: 100%;
+      padding-left: 12.5%;
+      padding-right: 25%;
+      /* border-right: solid;
+        border-width: 3px; */
+      margin-bottom: 1.5vh;
+      display: flex;
+      justify-content: center;
+      min-height: 30px;
+    }
+
+    .left-navbar-option:hover {
+      border-right: solid;
+      border-width: 4px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      color: rgb(103, 118, 249);
+      transition: 0.2s;
+    }
+
+    .left-navbar-svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left-navbar-optiontext {
+      font-size: 12px;
+
+      display: flex;
+
+      align-items: center;
+      min-width: 56px;
+      width: 60%;
+      margin-left: 5px;
+    }
+
+    #dashboard-option {
+      display: flex;
+      flex-direction: row;
+
+      margin-top: 10vh;
+      align-items: center;
+    }
+
+    #dashboard-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    /* #dashboard-svg:hover{
+        background-color:rgb(103, 118, 249);
+        color: rgb(103, 118, 249) ;
+
+      } */
+
+    #courses-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #dashboard-mycourses-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    #schedule-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #dashboard-schedule-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    #resources-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+    }
+
+    #dashboard-resources-svg {
+      /* height: 20px; */
+      width: 20px;
+      margin-right: auto;
+    }
+
+    #settings-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      /* background-color: brown; */
+      margin-top: auto;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    #dashboard-settings-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #video-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      /* position: fixed; */
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 10.05vh;
+      background-color: black;
+      /* height: 89.95vh; */
+      height: 60vh;
+    }
+
+    #video-controls {
+      /* display: flex; */
+      display: none;
+      position: absolute;
+
+      /* height: 10vh; */
+      height: 20vh;
+      width: 100%;
+      bottom: 0;
+      bottom: -10vh;
+      left: 0;
+      right: 0;
+      align-items: center;
+      /* display: none; */
+
+      background-color: black;
+      min-height: 35px;
+      z-index: 15;
+      flex-wrap: wrap;
+      color: white;
+    }
+
+    #video-controls-sec1 {
+      display: flex;
+      width: 100%;
+      height: 10vh;
+      flex-direction: row;
+    }
+
+    #time-stamp {
+      margin-left: 10px;
+    }
+
+    #progress-seeker {
+      height: 10vh;
+      width: 100%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #timeline {
+      width: 98%;
+      /* margin-left: auto; */
+      /* margin-right: 10px; */
+    }
+
+    #timeline-input {
+      /* accent-color: rgb(255, 0, 0); */
+      background: transparent;
+      border: none;
+    }
+
+    #timeline-input::-webkit-slider-thumb {
+      /* -webkit-appearance: none; */
+      /* background: transparent; */
+      background-color: violet;
+      /* height: 20px;
+        width: 20px;*/
+    }
+
+    #playpausebtn {
+      cursor: pointer;
+      background-color: black;
+      height: 90%;
+      border-style: none;
+    }
+
+    #playpauseimage {
+      height: 90%;
+    }
+
+    #video-mp4 {
+      /* width: 99.8%; */
+      max-width: 100%;
+
+      height: 100%;
+      margin: auto;
+    }
+
+    #volumeonoroffbtn {
+      cursor: pointer;
+      background-color: black;
+      height: 90%;
+      border-style: none;
+
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    #volumeonoffimage {
+      height: 90%;
+    }
+
+    #playbackratebtn {
+      cursor: pointer;
+      background-color: black;
+      height: 90%;
+      border-style: none;
+      /* margin-left: auto; */
+    }
+
+    #speedometer {
+      height: 90%;
+    }
+
+    #media-speed-modal {
+      /* display: flex;*/
+      position: absolute;
+      background-color: rgb(0, 0, 0);
+      color: white;
+      /* height: 80%; */
+      height: 100%;
+      z-index: 8;
+
+      /* bottom: 12vh; */
+      bottom: 0;
+
+      right: 0;
+      justify-content: center;
+      padding-bottom: 70px;
+
+
+      display: none;
+      width: 30%;
+      overflow: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .media-speed-modal-options {
+      margin: auto;
+      margin-left: 5px;
+      margin-right: 5px;
+      display: flex;
+      justify-content: center;
+      border-style: solid;
+      border-color: white;
+      height: 8vh;
+      min-height: 30px;
+
+      align-items: center;
+      border-radius: 4px;
+
+    }
+
+    #ask-doubt-modal {
+      background-color: black;
+      width: 35%;
+      /* width: 100%; */
+      height: 90vh;
+      position: fixed;
+      top: 10vh;
+      right: 0;
+      bottom: 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: auto;
+      padding-top: 10px;
+      /* padding-left:20px;
+              padding-right: 20px; */
+      z-index: 20;
+      /* display: flex; */
+      display: none;
+      /* flex-wrap: wrap; */
+      /* justify-content: center; */
+      flex-direction: column;
+    }
+
+    #close-button-container {
+      /* width: calc(100%-40px); */
+      width: 100%;
+      height: 50px;
+      /* background-color: bisque; */
+      display: flex;
+      align-items: center;
+      /* justify-content: center; */
+
+    }
+
+    #doubt-close-button {
+      height: 30px;
+      min-width: 70px;
+      /* margin-left: 15px; */
+      margin-left: auto;
+      margin-right: 10px;
+      background-color: black;
+      color: white;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 4px;
+      border-color: white;
+
+
+    }
+
+    #doubt-write-message {
+      width: 100%;
+      height: 50px;
+      /* background-color: bisque; */
+      display: flex;
+      align-items: center;
+
+
+    }
+
+    #doubt-textarea-container {
+      width: 100%;
+      /* height: 50px; */
+      /* background-color: bisque; */
+      display: flex;
+      align-items: center;
+      height: 65%;
+
+    }
+
+    #doubt-textarea {
+      resize: none;
+      width: 100%;
+      /* background-color: aqua; */
+      height: 100%;
+    }
+
+    #doubt-textarea::placeholder {
+      color: red;
+      opacity: 1;
+      /* Firefox */
+    }
+
+    #doubt-textarea::-ms-input-placeholder {
+      /* Edge 12-18 */
+      color: red;
+    }
+
+    #submit-doubt-button-container {
+      width: 100%;
+      height: 50px;
+      /* background-color: bisque; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 65%; */
+
+    }
+
+    #submit-doubt-button {
+      height: 30px;
+      min-width: 70px;
+      width: 33%;
+
+    }
+
+    #ask-doubt {
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      min-height: 50px;
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+    }
+
+    #ask-doubt-btn {
+      width: 40%;
+      min-height: 40px;
+      max-width: 250px;
+      background-color: rgb(233, 38, 87);
+      color: white;
+      border-color: rgb(233, 38, 87);
+      border-radius: 5px;
+      border-style: solid;
+      min-width: 130px;
+      margin-top: 5px;
+      border-width: 3px;
+
+    }
+
+    #ask-doubt-btn:hover {
+
+      /* background-color: rgb(233, 38, 87); */
+      background-color: rgb(169, 178, 251);
+      color: black;
+      transition: 0.4s;
+
+
+
+    }
+
+    @media only screen and (max-height: 400px) {
+      /* #ask-doubt-modal{
+          height: calc(90%-35px);
+          
+
+
+        } */
+
+    }
+
+    @media only screen and (max-width: 600px) {
+      #main-body {
+        padding-top: 45vh;
+      }
+
+      #video-container {
+        height: 45vh;
+        position: fixed;
+      }
+
+      #ask-doubt-modal {
+
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 600px) {}
+
+    @media only screen and (max-width: 768px) {
+      #search-container {
+        margin-right: 15px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {}
+
+    @media only screen and (max-width: 992px) {
+      #left-navbar {
+          min-width: 20px;
+          width: 70px;
+          
+        }
+        .left-navbar-option {
+          width: 100%;
+
+          margin-bottom: 2.5vh;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .left-navbar-option:active {
+          border-right: solid;
+          border-width: 4px;
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
+          color: rgb(103, 118, 249);
+          /* transition: 0.2s; */
+        }
+        .left-navbar-svg-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .left-navbar-optiontext {
+          font-size: 11px;
+
+          display: flex;
+
+          align-items: center;
+          justify-content: center;
+          min-width: 56px;
+          width: 60%;
+          margin-left: 0;
+          font-weight: 400;
+          font-family: Roboto, Arial, sans-serif;
+          margin-top: 2px;
+        }
+        #dashboard-option {
+          display: flex;
+          flex-direction: column;
+
+          margin-top: 47px;
+          align-items: center;
+          /* justify-content: center; */
+        }
+        #dashboard-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #courses-option {
+          /* width: 50%; */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-mycourses-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #schedule-option {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-schedule-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+        #resources-option {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #dashboard-resources-svg {
+          width: 20px;
+        }
+        #settings-option {
+          /* width: 50%; */
+          display: flex;
+          flex-direction: column;
+          /* background-color: brown; */
+          margin-top: auto;
+          margin-bottom: 15px;
+          align-items: center;
+        }
+        #dashboard-settings-svg {
+          height: 20px;
+          margin-right: auto;
+        }
+    }
+  </style>
+</head>
+
+<body id="main-body">
+  <div id="main-header">
+    <div id="hamburger-icon-container">
+      <img id="hamburger-icon" src="../srcimages/hamburger_icon.svg" />
+    </div>
+    <div id="detubez-logo">
+      <img id="logo-jpg" src="../srcimages/Detubez-logos_black.png" />
+    </div>
+    <div id="search-container">
+      <img id="search-svg" src="../srcimages/search.svg" />
+    </div>
+    <div id="avatar-container">
+      <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
+    </div>
+  </div>
+
+  <div id="video-container">
+    <video id="video-mp4"
+      src="../srcvideos/Metacentre and Floatation _ 3D Animated Content _ Easy Engineering _ Fluid Mechanics.mp4">
+      your browser doesn't supports HTML5 video tag.
+    </video>
+    <div id="video-controls">
+      <div id="video-controls-sec1">
+        <button id="playpausebtn" onclick="playorpause()">
+          <img id="playpauseimage" src="../srcimages/play-button.svg" />
+        </button>
+
+        <div id="time-string" style="
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            ">
+          00:00/23.14
+        </div>
+
+        <button id="volumeonoroffbtn" onclick="muteoroff()">
+          <img id="volumeonoffimage" src="../srcimages/volume-up.svg" />
+        </button>
+
+        <button id="playbackratebtn" onclick="playbackmodal()">
+          <img id="speedometer" src="../srcimages/speedometer.svg" />
+        </button>
+      </div>
+
+      <div id="progress-seeker">
+        <progress id="timeline" value="0" max="50"></progress>
+        <input id="timeline-input" type="range" step="1" value="0" min="0" style="width: 98%; position: absolute" />
+      </div>
+    </div>
+
+    <div id="media-speed-modal">
+      <div style="margin-top: 15px;">Playback Rate</div>
+      <br />
+      <div class="media-speed-modal-options" id="0.75x">0.75X</div>
+      <br />
+
+      <div class="media-speed-modal-options" id="1x">1X</div>
+      <br />
+
+      <div class="media-speed-modal-options" id="1.5x">1.5X</div>
+      <br />
+      <div class="media-speed-modal-options" id="2x">2X</div>
+
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+
+  <div id="ask-doubt">
+
+    <button id="ask-doubt-btn">
+
+      Ask Doubt</button>
+
+
+
+
+
+
+    <div id="ask-doubt-modal">
+      <div id="close-button-container"><button id="doubt-close-button">x close</button></div>
+      <div id="doubt-write-message">Write Your Question.</div>
+      <div id="doubt-textarea-container"><textarea id="doubt-textarea" placeholder="Enter your question."></textarea>
+      </div>
+
+      <div id="submit-doubt-button-container"><button id="submit-doubt-button" onclick="closedoubt()">Submit</button>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+
+
+  </div>
+
+
+
+
+
+  <div id="left-navbar">
+    <div id="dashboard-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+      </div>
+      <div class="left-navbar-optiontext">Dashboard</div>
+    </div>
+    <div id="courses-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+      </div>
+
+      <div class="left-navbar-optiontext">courses</div>
+    </div>
+    <div id="schedule-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+      </div>
+
+      <div class="left-navbar-optiontext">Schedule</div>
+    </div>
+    <div id="resources-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+      </div>
+      <div class="left-navbar-optiontext">Resources</div>
+    </div>
+    <div id="promotional-card"></div>
+    <div id="settings-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+      </div>
+      <div class="left-navbar-optiontext">Settings</div>
+    </div>
+  </div>
+
+  <script>
+    let video = document.getElementById("video-mp4");
+    let timestr;
+    let durationinsecs;
+    let durationinmins;
+    let durationinsecsremainder;
+    video.addEventListener("loadedmetadata", function () {
+      timestr = document.getElementById("time-string");
+      durationinsecs = Math.floor(video.duration);
+
+      durationinmins = Math.floor(durationinsecs / 60);
+      durationinsecsremainder = durationinsecs % 60;
+
+
+
+      timestr.innerText = `00:00/${durationinmins}:${durationinsecsremainder}`;
+    });
+
+
+
+
+
+    let videocurrenttime;
+    let currenttimemins;
+    let currenttimesecs;
+
+
+    video.addEventListener("loadeddata", () => {
+      setInterval(() => {
+        videocurrenttime = Math.floor(video.currentTime);
+
+        currenttimemins = Math.floor(videocurrenttime / 60);
+        if (currenttimemins < 10) {
+          currenttimemins = `0${currenttimemins}`;
+
+        }
+
+
+        currenttimesecs = Math.floor(videocurrenttime % 60);
+
+        if (currenttimesecs < 10) {
+          currenttimesecs = `0${currenttimesecs}`;
+
+        }
+
+
+
+        timestr.innerText = `${currenttimemins}:${currenttimesecs}/${durationinmins}:${durationinsecsremainder}`;
+
+
+        // timestr.innerText = `${video.currentTime}/${durationinmins}:${durationinsecsremainder}`;
+
+      }, 1000)
+
+    })
+
+
+
+
+    // setInterval(() => {
+    //   timestr.innerText = `${video.currentTime}/${durationinmins}:${durationinsecsremainder}`;
+
+    // }, 1000);
+
+    let playorpauseicon = document.getElementById("playpauseimage");
+    function playorpause() {
+      if (!video.paused) {
+        playorpauseicon.src = "../srcimages/play-button.svg";
+        video.pause();
+      } else if (video.paused) {
+        playorpauseicon.src = "../srcimages/pause-button.svg";
+        video.play();
+      }
+    }
+    video.addEventListener("ended", function () {
+      playorpauseicon.src = "../srcimages/replay.svg";
+      video.currentTime = 0; // Rewind to the beginning
+    });
+    let volumeonofficon = document.getElementById("volumeonoffimage");
+
+    function muteoroff() {
+      if (video.volume != 0) {
+        // volumeonofficon.src = "../srcimages/volume-mute.svg";
+        volumeonofficon.src = "../srcimages/volume-mute.svg";
+        video.volume = 0;
+      } else if (video.volume == 0) {
+        volumeonofficon.src = "../srcimages/volume-up.svg";
+        // volumeonofficon.src = "../srcimages/volume-up.svg";
+
+        video.volume = 1;
+      }
+    }
+
+    let modal1 = document.getElementById("media-speed-modal");
+    let modalhidden = true;
+
+    function playbackmodal() {
+      if (modalhidden == true) {
+        modal1.style.display = "block";
+        modalhidden = false;
+      } else if (modalhidden == false) {
+        modal1.style.display = "none";
+        modalhidden = true;
+      }
+
+
+    }
+
+    let videocontainer = document.getElementById("video-container");
+    let videocontrols = document.getElementById("video-controls");
+    videocontainer.addEventListener("mouseover", displayvidcontrols);
+    videocontainer.addEventListener("mouseout", hidevidcontrols);
+
+    function displayvidcontrols() {
+      videocontrols.style.display = "flex";
+    }
+
+    function hidevidcontrols() {
+      videocontrols.style.display = "none";
+    }
+
+
+
+    let speed1 = document.getElementById("0.75x");
+    let speed2 = document.getElementById("1x");
+    let speed3 = document.getElementById("1.5x");
+    let speed4 = document.getElementById("2x");
+
+    speed1.addEventListener("click", playbackspeed1);
+    speed2.addEventListener("click", playbackspeed2);
+    speed3.addEventListener("click", playbackspeed3);
+    speed4.addEventListener("click", playbackspeed4);
+
+
+
+
+    function playbackspeed1() {
+      console.log(0.75);
+      video.playbackRate = 0.75;
+      // speed1.style.backgroundColor="grey";
+    }
+    function playbackspeed2() {
+      console.log(1);
+      video.playbackRate = 1;
+    }
+    function playbackspeed3() {
+      console.log(1.5);
+      video.playbackRate = 1.5;
+    }
+    function playbackspeed4() {
+      console.log(2);
+      video.playbackRate = 2;
+    }
+
+
+    let doubtclosebtn = document.getElementById("doubt-close-button");
+    doubtclosebtn.addEventListener("click", closedoubt);
+    let doubtmodal = document.getElementById("ask-doubt-modal");
+    function closedoubt() {
+      doubtmodal.style.display = "none";
+
+    }
+
+    let askdoubtbtn = document.getElementById("ask-doubt-btn");
+    askdoubtbtn.addEventListener("click", showdoubt);
+    function showdoubt() {
+      doubtmodal.style.display = "flex";
+
+    }
+
+
+    let leftnavbar = document.getElementById("left-navbar");
+    let leftnavbarhidden = true;
+    function showhideleftnav() {
+      console.log(23);
+      if (leftnavbarhidden == true) {
+        leftnavbarhidden = false;
+        leftnavbar.style.display = "flex";
+        
+        
+
+      }
+      else if (leftnavbarhidden != true) {
+        leftnavbarhidden = true;
+        leftnavbar.style.display = "none";
+      }
+      // if (leftnavbar.style.display == "none") {
+      //   leftnavbar.style.display = "flex";
+      //   console.log(1);
+
+      // }
+      // else if (leftnavbar.style.display == "flex") {
+      //   leftnavbar.style.display = "none";
+      // }
+
+    }
+    let hamburgerbutton = document.getElementById("hamburger-icon-container");
+    hamburgerbutton.addEventListener("click",showhideleftnav);
+
+
+
+  </script>
+</body>
+
+</html>

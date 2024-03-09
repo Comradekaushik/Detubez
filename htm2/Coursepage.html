@@ -471,7 +471,7 @@
         min-width: 230px;
         min-height: 300px;
       }
-      #your-progress-text{
+      #your-progress-text {
         display: flex;
         width: 100%;
         align-items: center;
@@ -479,30 +479,30 @@
         margin-top: 15px;
         padding-left: 10px;
       }
-      #progress-container{
+      #progress-container {
         width: 100%;
         display: flex;
         justify-content: center;
-        
       }
       #right-section-progress {
         width: 90%;
-        
-        
+
         color: rgb(103, 118, 249);
-        
       }
-     
+
       #right-section-accordion {
         height: 60%;
         overflow: auto;
         width: 100%;
         /* min-width: 260px; */
       }
+      #right-section-accordion::-webkit-scrollbar {
+        display: none;
+      }
+
       .accordions {
         width: 90%;
         margin: auto;
-
       }
       .accordion-dropdowns {
         display: flex;
@@ -540,7 +540,7 @@
         display: none;
         width: 100%;
       }
-      #comment-section{
+      #comment-section {
         width: 100%;
         /* background-color: blue; */
         height: 40%;
@@ -549,14 +549,13 @@
       #comment-section::-webkit-scrollbar {
         display: none;
       }
-      #enter-notebook-link{
+      #enter-notebook-link {
         width: 100%;
         display: flex;
         margin-top: 2.5%;
         height: 20%;
-        
       }
-      #link-input{
+      #link-input {
         width: 90%;
         margin: auto;
         border-radius: 5px;
@@ -564,16 +563,14 @@
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
-        
       }
-      #comment-textarea-container{
+      #comment-textarea-container {
         width: 100%;
         display: flex;
         margin-top: 2.5%;
         height: 58%;
-
       }
-      #comment-textarea{
+      #comment-textarea {
         width: 90%;
         margin: auto;
         border-radius: 5px;
@@ -583,27 +580,24 @@
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
-        
       }
-      #submit-button-container{
+      #submit-button-container {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-top: 2%;
         height: 15%;
         margin-bottom: 20px;
-
       }
-      #input-submit{
+      #input-submit {
         width: 40%;
-        background-color:rgb(103, 118, 249);;
+        background-color: rgb(103, 118, 249);
         border-radius: 4px;
         /* margin: auto; */
         border-style: solid;
         border-width: 2px;
         border-color: rgb(103, 118, 249);
         border-radius: 4px;
-
       }
 
       @media only screen and (max-height: 400px) {
@@ -1107,18 +1101,22 @@
         </div>
       </div>
       <div id="comment-section">
-      <form>
-        <div id="enter-notebook-link">
-          <input id="link-input" type="text" placeholder="Enter notebook link">
-        </div>
-        <div id="comment-textarea-container">
-          <textarea id="comment-textarea"></textarea>
-        </div>
-        <div id="submit-button-container">
-          <input id="input-submit" type="submit" value="Comment">
-        </div>
-      </form>
-    </div>
+        <form>
+          <div id="enter-notebook-link">
+            <input
+              id="link-input"
+              type="text"
+              placeholder="Enter notebook link"
+            />
+          </div>
+          <div id="comment-textarea-container">
+            <textarea id="comment-textarea"></textarea>
+          </div>
+          <div id="submit-button-container">
+            <input id="input-submit" type="submit" value="Comment" />
+          </div>
+        </form>
+      </div>
     </div>
     <script>
       let playlistbuttonleft = document.getElementById("playlist-scroll-left");

@@ -53,7 +53,7 @@
       #about-btn {
         width: 70%;
         height: 75%;
-        
+
         border-radius: 4px;
         border-style: solid;
         background-color: rgb(233, 38, 87);
@@ -96,11 +96,20 @@
         width: 100%;
         display: flex;
         flex-direction: row;
+        margin-top: 10vh;
       }
       #sec1-part1 {
         width: 64%;
         background-color: blue;
         height: 100vh;
+        /* padding-top: 12vh; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #welcome-back {
+        font-size: 60px;
+        margin: auto;
       }
       #sec1-part2 {
         width: 36%;
@@ -180,6 +189,7 @@
         }
         #sec1-part1 {
           width: 100vw;
+          display: none;
         }
         #sec1-part2 {
           width: 100vw;
@@ -325,8 +335,42 @@
     </div>
 
     <div id="section1">
-      <div id="sec1-part1"></div>
-      <div id="sec1-part2"></div>
+      <div id="sec1-part1">
+        <div id="welcome-back">Welcome Back</div>
+        <div id="Welcome-message">Nice to see you again</div>
+      </div>
+
+
+      <style>
+        #sec1-part2{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+        }
+        .login-form{
+          width: 75%;
+          border-style: solid;
+          border-radius: 4px;
+          min-height: 300px;
+        }
+        .form-username-input{
+          height: 40px;
+        }
+
+      </style>
+      <div id="sec1-part2" >
+        <div class="login-form">
+        <form>
+          <input class="form-username-input" type="text" placeholder="Username or email" />
+          <input class="form-password-input" type="password" placeholder="password"/>
+          <input type="submit" value="Log in"/>
+        </form>
+
+      </div>
+      <div id="forget-password"></div>
+      <div id="signup-instead"></div>
+      </div>
     </div>
     <div id="section2">
       <div id="sec2-part1" class="sec2divs"></div>
@@ -393,41 +437,39 @@
     </div>
     <div id="footer">Footer</div>
     <div id="flexbox-grid">
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div  class="boxes2"><a href="#">Footer LINKS</a></div>
-      
-      
-  </div>  
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+      <div class="boxes1"><a href="#">Footer LINKS</a></div>
+      <div class="boxes2"><a href="#">Footer LINKS</a></div>
+    </div>
 
     <script></script>
   </body>
