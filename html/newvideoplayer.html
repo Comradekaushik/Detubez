@@ -41,6 +41,7 @@
       align-items: center;
       justify-content: center;
       margin-right: auto;
+      cursor: pointer;
     }
 
     #hamburger-icon {
@@ -67,6 +68,7 @@
       justify-content: center;
       align-items: center;
       margin-right: 1.5vw;
+      cursor: pointer;
     }
 
     #search-svg {
@@ -80,6 +82,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
 
     #avatar-jpg {
@@ -106,7 +109,7 @@
       top: 0;
       bottom: 0;
 
-      z-index:16;
+      z-index: 16;
       /*display: flex;*/
       display: none;
       flex-direction: column;
@@ -126,6 +129,7 @@
       display: flex;
       justify-content: center;
       min-height: 30px;
+      cursor: pointer;
     }
 
     .left-navbar-option:hover {
@@ -422,7 +426,7 @@
       overflow: auto;
       padding-top: 10px;
       /* padding-left:20px;
-              padding-right: 20px; */
+      padding-right: 20px; */
       z-index: 20;
       /* display: flex; */
       display: none;
@@ -454,6 +458,7 @@
       border-width: 2px;
       border-radius: 4px;
       border-color: white;
+      cursor: pointer;
 
 
     }
@@ -505,12 +510,14 @@
       align-items: center;
       /* height: 65%; */
 
+
     }
 
     #submit-doubt-button {
       height: 30px;
       min-width: 70px;
       width: 33%;
+      cursor: pointer;
 
     }
 
@@ -538,6 +545,7 @@
       min-width: 130px;
       margin-top: 5px;
       border-width: 3px;
+      cursor: pointer;
 
     }
 
@@ -548,6 +556,96 @@
       color: black;
       transition: 0.4s;
 
+
+
+    }
+    #profile-modal {
+      background-color: rgb(0, 0, 0);
+      width: 35%;
+      /* width: 100%; */
+      height: 90vh;
+      position: fixed;
+      top: 10vh;
+      right: 0;
+      bottom: 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: auto;
+      padding-top: 10px;
+      /* padding-left:20px;
+      padding-right: 20px; */
+      z-index: 20;
+      /*display: flex;*/
+      display: none;
+      /* flex-wrap: wrap; */
+      /* justify-content: center; */
+      flex-direction: column;
+
+    }
+
+    #image-profile-modal {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #profile-modal-image {
+      border-radius: 50%;
+      max-width: 50%;
+      max-height: 90%;
+
+    }
+
+    #username-modal {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-name {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-rank {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-email {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-account-open {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #close-profile-btn{
+      height: 30px;
+      min-width: 70px;
+      /* margin-left: 15px; */
+      margin-left: auto;
+      margin-right: 10px;
+      background-color: black;
+      color: white;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 4px;
+      border-color: white;
+      cursor: pointer;
 
 
     }
@@ -576,6 +674,11 @@
 
         width: 100%;
       }
+
+      #profile-modal {
+
+        width: 100%;
+      }
     }
 
     @media only screen and (min-width: 600px) {}
@@ -590,99 +693,113 @@
 
     @media only screen and (max-width: 992px) {
       #left-navbar {
-          min-width: 20px;
-          width: 70px;
-          
-        }
-        .left-navbar-option {
-          width: 100%;
+        min-width: 20px;
+        width: 70px;
 
-          margin-bottom: 2.5vh;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          padding-left: 0;
-          padding-right: 0;
-        }
-        .left-navbar-option:active {
-          border-right: solid;
-          border-width: 4px;
-          border-top-right-radius: 3px;
-          border-bottom-right-radius: 3px;
-          color: rgb(103, 118, 249);
-          /* transition: 0.2s; */
-        }
-        .left-navbar-svg-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .left-navbar-optiontext {
-          font-size: 11px;
+      }
 
-          display: flex;
+      .left-navbar-option {
+        width: 100%;
 
-          align-items: center;
-          justify-content: center;
-          min-width: 56px;
-          width: 60%;
-          margin-left: 0;
-          font-weight: 400;
-          font-family: Roboto, Arial, sans-serif;
-          margin-top: 2px;
-        }
-        #dashboard-option {
-          display: flex;
-          flex-direction: column;
+        margin-bottom: 2.5vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+      }
 
-          margin-top: 47px;
-          align-items: center;
-          /* justify-content: center; */
-        }
-        #dashboard-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #courses-option {
-          /* width: 50%; */
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-mycourses-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #schedule-option {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-schedule-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #resources-option {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-resources-svg {
-          width: 20px;
-        }
-        #settings-option {
-          /* width: 50%; */
-          display: flex;
-          flex-direction: column;
-          /* background-color: brown; */
-          margin-top: auto;
-          margin-bottom: 15px;
-          align-items: center;
-        }
-        #dashboard-settings-svg {
-          height: 20px;
-          margin-right: auto;
-        }
+      .left-navbar-option:active {
+        border-right: solid;
+        border-width: 4px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        color: rgb(103, 118, 249);
+        /* transition: 0.2s; */
+      }
+
+      .left-navbar-svg-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left-navbar-optiontext {
+        font-size: 11px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        min-width: 56px;
+        width: 60%;
+        margin-left: 0;
+        font-weight: 400;
+        font-family: Roboto, Arial, sans-serif;
+        margin-top: 2px;
+      }
+
+      #dashboard-option {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 47px;
+        align-items: center;
+        /* justify-content: center; */
+      }
+
+      #dashboard-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+
+      #courses-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #dashboard-mycourses-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+
+      #schedule-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #dashboard-schedule-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+
+      #resources-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #dashboard-resources-svg {
+        width: 20px;
+      }
+
+      #settings-option {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: column;
+        /* background-color: brown; */
+        margin-top: auto;
+        margin-bottom: 15px;
+        align-items: center;
+      }
+
+      #dashboard-settings-svg {
+        height: 20px;
+        margin-right: auto;
+      }
     }
   </style>
 </head>
@@ -699,7 +816,7 @@
       <img id="search-svg" src="../srcimages/search.svg" />
     </div>
     <div id="avatar-container">
-      <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
+      <img id="avatar-jpg" src="../srcimages/images-stalin-pic.jpg" />
     </div>
   </div>
 
@@ -834,6 +951,40 @@
       <div class="left-navbar-optiontext">Settings</div>
     </div>
   </div>
+
+
+
+  
+
+
+
+  <div id="profile-modal">
+    <button id="close-profile-btn">X close</button>
+    <div id="image-profile-modal">
+      <img id="profile-modal-image" src="../srcimages/images-stalin-pic.jpg">
+
+    </div>
+    <div id="username-modal">@KobaKlein</div>
+    <div id="modal-name">
+      Name : Koba Klein
+    </div>
+    <div id="modal-rank">
+      Rank : 1578
+    </div>
+    <div id="modal-email">
+      Email : KobaKlein@duck.com
+    </div>
+    <div id="modal-account-open">
+      Account Opened : 16.01.2008
+    </div>
+
+
+
+
+
+
+  </div>
+
 
   <script>
     let video = document.getElementById("video-mp4");
@@ -1013,8 +1164,8 @@
       if (leftnavbarhidden == true) {
         leftnavbarhidden = false;
         leftnavbar.style.display = "flex";
-        
-        
+
+
 
       }
       else if (leftnavbarhidden != true) {
@@ -1032,7 +1183,38 @@
 
     }
     let hamburgerbutton = document.getElementById("hamburger-icon-container");
-    hamburgerbutton.addEventListener("click",showhideleftnav);
+    hamburgerbutton.addEventListener("click", showhideleftnav);
+
+
+    let profileclosebtn = document.getElementById("close-profile-btn");
+    profileclosebtn.addEventListener("click", closeprofile);
+    let profilemodal = document.getElementById("profile-modal");
+    function closeprofile() {
+      profilemodal.style.display = "none";
+
+    }
+
+
+    
+    let profilemodalhidden = true;
+    function showhideprofilemodal() {
+      console.log(23);
+      if (profilemodalhidden == true) {
+        profilemodalhidden = false;
+        profilemodal.style.display = "flex";
+
+
+
+      }
+      else if (profilemodalhidden != true) {
+        profilemodalhidden = true;
+        profilemodal.style.display = "none";
+      }
+      
+
+    }
+    let profileicon = document.getElementById("avatar-container");
+    profileicon.addEventListener("click", showhideprofilemodal);
 
 
 

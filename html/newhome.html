@@ -1,504 +1,969 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      #main-body {
-        padding: 0;
-        margin: 0;
-        padding-top: 11vh;
-        padding-left: 18%;
-        font-family: Arial, sans-serif;
-      }
-      #header {
-        /* width: 82%; */
-        width: 100%;
-        height: 10vh;
-        /* background-color: white; */
-        background-color: rgb(169, 178, 251);
-        z-index: 7;
-        top: 0;
-        position: fixed;
 
-        right: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: right;
-        min-height: 42px;
-        min-width: 200px;
-      }
-      #hamburger-icon-container {
-        height: 100%;
-        width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* margin-right: auto; */
-        display: none;
-      }
-      #hamburger-icon {
-        height: 25px;
-      }
-      #logo-container{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        margin-right: auto;
-      }
-      #logo-png{
-        height: 80%;
-      }
-      #search-option {
-        width: 5%;
-        min-width: 35px;
-        min-height: 25px;
-      }
-      #search-svg {
-        height: 25px;
-      }
-      #notification {
-        width: 5%;
-        min-width: 35px;
-        min-height: 25px;
-        padding-top: 0.3%;
-      }
-      #notification-svg {
-        height: 25px;
-      }
-      #avatar {
-        width: 25px;
-        height: 25px;
-        margin-right: 2%;
-        background-color: black;
-        border-style: solid;
-        border-radius: 50%;
-        border-width: 0;
-        min-width: 25px;
-        min-height: 25px;
-        display: flex;
-        align-items: center;
-      }
-      #avatar-jpg {
-        width: 100%;
-        /* min-width: 42px; */
-        height: 100%;
-        /* min-height: 42px; */
-        border-style: solid;
-        border-radius: 50%;
-        border-width: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-      #left-navbar {
-        height: 100vh;
-        width: 18%;
-        background-color: rgb(246, 248, 251);
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
+    #main-body {
+      padding: 0;
+      margin: 0;
+      padding-top: 11vh;
+      padding-left: 18%;
+      font-family: Arial, sans-serif;
+    }
 
-        z-index: 5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 170px;
-        min-height: 220px;
-      }
-      .left-navbar-option {
-        width: 100%;
-        padding-left: 12.5%;
-        padding-right: 25%;
-        /* border-right: solid;
+    #header {
+      /* width: 82%; */
+      width: 100%;
+      height: 10vh;
+      /* background-color: white; */
+      background-color: rgb(169, 178, 251);
+      z-index: 27;
+      top: 0;
+      position: fixed;
+
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: right;
+      min-height: 42px;
+      min-width: 200px;
+    }
+
+    #hamburger-icon-container {
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* margin-right: auto; */
+      display: none;
+    }
+
+    #hamburger-icon {
+      height: 25px;
+    }
+
+    #logo-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+    }
+
+    #logo-png {
+      height: 80%;
+    }
+
+    #search-option {
+      width: 5%;
+      min-width: 35px;
+      min-height: 25px;
+    }
+
+    #search-svg {
+      height: 25px;
+    }
+
+    #notification {
+      width: 5%;
+      min-width: 35px;
+      min-height: 25px;
+      padding-top: 0.3%;
+    }
+
+    #notification-svg {
+      height: 25px;
+    }
+
+    #avatar {
+      width: 25px;
+      height: 25px;
+      margin-right: 2%;
+      background-color: black;
+      border-style: solid;
+      border-radius: 50%;
+      border-width: 0;
+      min-width: 25px;
+      min-height: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    #avatar-jpg {
+      width: 100%;
+      /* min-width: 42px; */
+      height: 100%;
+      /* min-height: 42px; */
+      border-style: solid;
+      border-radius: 50%;
+      border-width: 0;
+    }
+
+    #left-navbar {
+      height: 100vh;
+      width: 18%;
+      background-color: rgb(246, 248, 251);
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 170px;
+      min-height: 220px;
+    }
+
+    .left-navbar-option {
+      width: 100%;
+      padding-left: 12.5%;
+      padding-right: 25%;
+      /* border-right: solid;
         border-width: 3px; */
-        margin-bottom: 1.5vh;
-        display: flex;
-        justify-content: center;
-        min-height: 30px;
-      }
-      .left-navbar-option:hover {
-        border-right: solid;
-        border-width: 4px;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        color: rgb(103, 118, 249);
-        transition: 0.2s;
-      }
-      .left-navbar-svg-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .left-navbar-optiontext {
-        font-size: 12px;
+      margin-bottom: 1.5vh;
+      display: flex;
+      justify-content: center;
+      min-height: 30px;
+    }
 
-        display: flex;
+    .left-navbar-option:hover {
+      border-right: solid;
+      border-width: 4px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      color: rgb(103, 118, 249);
+      transition: 0.2s;
+    }
 
-        align-items: center;
-        min-width: 56px;
-        width: 60%;
-        margin-left: 5px;
-      }
-      #dashboard-option {
-        display: flex;
-        flex-direction: row;
+    .left-navbar-svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        margin-top: 10vh;
-        align-items: center;
-      }
-      #dashboard-svg {
-        height: 20px;
-        margin-right: auto;
-      }
-      /* #dashboard-svg:hover{
+    .left-navbar-optiontext {
+      font-size: 12px;
+
+      display: flex;
+
+      align-items: center;
+      min-width: 56px;
+      width: 60%;
+      margin-left: 5px;
+    }
+
+    #dashboard-option {
+      display: flex;
+      flex-direction: row;
+
+      margin-top: 10vh;
+      align-items: center;
+    }
+
+    #dashboard-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    /* #dashboard-svg:hover{
         background-color:rgb(103, 118, 249);
         color: rgb(103, 118, 249) ;
 
       } */
 
+    #courses-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #dashboard-mycourses-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    #schedule-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #dashboard-schedule-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    #resources-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+    }
+
+    #dashboard-resources-svg {
+      /* height: 20px; */
+      width: 20px;
+      margin-right: auto;
+    }
+
+    #settings-option {
+      /* width: 50%; */
+      display: flex;
+      flex-direction: row;
+      /* background-color: brown; */
+      margin-top: auto;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    #dashboard-settings-svg {
+      height: 20px;
+      margin-right: auto;
+    }
+
+    #middle-section {
+      width: 68%;
+      min-height: 600px;
+      margin-left: 2%;
+      /* background-color: red; */
+    }
+
+    #course-name {
+      width: 68%;
+      white-space: nowrap;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 25px;
+      margin-right: 15.5%;
+      font-weight: 650;
+    }
+
+    #profile-modal {
+      background-color: rgb(0, 0, 0);
+      width: 35%;
+      /* width: 100%; */
+      height: 90vh;
+      position: fixed;
+      top: 10vh;
+      right: 0;
+      bottom: 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: auto;
+      padding-top: 10px;
+      /* padding-left:20px;
+      padding-right: 20px; */
+      z-index: 20;
+      /* display: flex; */
+      display: none;
+      /* flex-wrap: wrap; */
+      /* justify-content: center; */
+      flex-direction: column;
+
+    }
+
+    #image-profile-modal {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #profile-modal-image {
+      border-radius: 50%;
+      max-width: 50%;
+      max-height: 90%;
+
+    }
+
+    #username-modal {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-name {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-rank {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-email {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-account-open {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #close-profile-btn {
+      height: 30px;
+      min-width: 70px;
+      /* margin-left: 15px; */
+      margin-left: auto;
+      margin-right: 10px;
+      background-color: black;
+      color: white;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 4px;
+      border-color: white;
+      cursor: pointer;
+
+
+    }
+
+
+
+
+
+    #middle-section {
+        /* background-color: aqua; */
+        /* margin-left: 185px; */
+        /* margin-right: 23.3%; */
+        /* min-width: 500px; */
+      }
+      #learning-stats-header {
+        display: flex;
+        flex-direction: row;
+        /* background-color: rgb(100, 115, 249); */
+        width: 100%;
+        height: 20vh;
+        margin-top: 10px;
+      }
+      #learning-stats1 {
+        width: 62.5%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 1%;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 2px;
+        margin-right: 2.5%;
+        border-color: rgb(169, 178, 251);
+      }
+      #learning-stats2 {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 1%;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 2px;
+        margin-right: 2.5%;
+        border-color: rgb(169, 178, 251);
+        min-width: 139px;
+      }
+      #current-course-text {
+        margin-top: 4px;
+        margin-bottom: 3px;
+        font-weight: bolder;
+      }
+      #current-course {
+        margin-top: 2px;
+        width: 100%;
+        /* background-color: blanchedalmond; */
+        height: 230px;
+        display: flex;
+      }
+      #current-course-thumbnail {
+        width: 55%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #thumbnail-current-course {
+        max-height: 90%;
+        width: 90%;
+        border-radius: 4px;
+      }
+      #current-lesson-description-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 45%;
+      }
+      #current-lesson-description-title {
+        width: 90%;
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 600;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      #current-lesson-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 7;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        font-weight: 500;
+        width: 90%;
+        /* margin: auto; */
+      }
+      #progress-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+      #course-progress {
+        width: 90%;
+        margin-top: auto;
+      }
+      #fraction-course-done {
+        width: 90%;
+        /* margin: auto; */
+      }
+      #playlist-scroll-controls {
+        display: flex;
+        width: 100%;
+        user-select: none;
+        align-items: center;
+        margin-top: 10px;
+      }
+      #allvids {
+        width: 85%;
+        font-weight: 500;
+      }
+
+      #playlist-scroll-left {
+        margin-left: auto;
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        /* border-color:rgb(103, 118, 249) ; */
+        border-radius: 50%;
+      }
+
+      #playlist-scroll-left:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      #playlist-scroll-right {
+        cursor: pointer;
+        border-style: solid;
+        border-color: rgb(169, 178, 251);
+        margin-left: 7px;
+        border-radius: 50%;
+      }
+
+      #playlist-scroll-right:hover {
+        background-color: rgb(103, 118, 249);
+        border-color: rgb(103, 118, 249);
+        transition: 0.2s;
+      }
+      #playlist-videos {
+        display: flex;
+        flex-direction: row;
+        height: 35vh;
+        min-height: 160px;
+        /* height: auto; */
+        width: 100%;
+        /* background-color: black; */
+        overflow: auto;
+        padding-left: 10px;
+        /* position: absolute; */
+        position: relative;
+        scroll-behavior: smooth;
+      }
+      #playlist-videos::-webkit-scrollbar {
+        display: none;
+      }
+      #playlist-videos {
+        -ms-overflow-style: none;
+        scroolbar-width: none;
+      }
+      .playlist-thumbnails {
+        width: 30%;
+
+        height: 100%;
+        flex-shrink: 0;
+        /* background-color: rgb(56, 173, 173); */
+        margin-right: 2%;
+        min-width: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 200px;
+      }
+      .thumbnail-image-container {
+        height: 82%;
+      }
+      .thumbnail-jpg {
+        /* height: 100%; */
+        width: 100%;
+        border-radius: 12px;
+        user-select: none;
+      }
+      .thumbnail-title {
+        /* height: 14%; */
+        /* width: 90%; */
+        width: 100%;
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+
+
+
+
+
+
+
+
+    @media only screen and (max-height: 400px) {
+      #main-body {
+        padding-top: 45px;
+      }
+
+      #dashboard-option {
+
+
+        margin-top: 45px;
+
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      #profile-modal {
+
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 600px) {}
+
+    @media only screen and (max-width: 768px) {}
+
+    @media only screen and (min-width: 768px) {}
+
+    @media only screen and (max-width: 992px) {
+      #main-body {
+        padding-left: 80px;
+      }
+
+      #header {
+        /* width: calc(100% - 80px); */
+        width: 100%;
+      }
+
+      #right-section {
+        display: none;
+      }
+
+      #course-name {
+        display: none;
+      }
+
+      #hamburger-icon-container {
+
+        display: flex;
+      }
+
+      #left-navbar {
+        min-width: 20px;
+        width: 70px;
+
+      }
+
+      .left-navbar-option {
+        width: 100%;
+
+        margin-bottom: 2.5vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .left-navbar-option:active {
+        border-right: solid;
+        border-width: 4px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        color: rgb(103, 118, 249);
+        /* transition: 0.2s; */
+      }
+
+      .left-navbar-svg-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left-navbar-optiontext {
+        font-size: 11px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        min-width: 56px;
+        width: 60%;
+        margin-left: 0;
+        font-weight: 400;
+        font-family: Roboto, Arial, sans-serif;
+        margin-top: 2px;
+      }
+
+      #dashboard-option {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 47px;
+        align-items: center;
+        /* justify-content: center; */
+      }
+
+      #dashboard-svg {
+        height: 20px;
+        margin-right: auto;
+      }
+
       #courses-option {
         /* width: 50%; */
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
       }
+
       #dashboard-mycourses-svg {
         height: 20px;
         margin-right: auto;
       }
+
       #schedule-option {
-        /* width: 50%; */
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
       }
+
       #dashboard-schedule-svg {
         height: 20px;
         margin-right: auto;
       }
+
       #resources-option {
-        /* width: 50%; */
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
       }
+
       #dashboard-resources-svg {
-        /* height: 20px; */
         width: 20px;
-        margin-right: auto;
       }
+
       #settings-option {
         /* width: 50%; */
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         /* background-color: brown; */
         margin-top: auto;
         margin-bottom: 15px;
         align-items: center;
       }
+
       #dashboard-settings-svg {
         height: 20px;
         margin-right: auto;
       }
-      #middle-section {
-        width: 68%;
-        min-height: 600px;
-        margin-left: 2%;
-        /* background-color: red; */
-      }
-      #course-name {
-        width: 68%;
-        white-space: nowrap;
 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 25px;
-        margin-right: 15.5%;
-        font-weight: 650;
-      }
-      
-      @media only screen and (max-height: 400px) {
-        #main-body {
-          padding-top: 45px;
-        }
-        #dashboard-option {
-        
+    }
 
-        margin-top: 45px;
-        
-      }
-      }
+    @media only screen and (min-width: 992px) {}
 
-      @media only screen and (max-width: 600px) {
-      }
-      @media only screen and (min-width: 600px) {
-      }
+    @media only screen and (min-width: 1200px) {}
+  </style>
+</head>
 
-      @media only screen and (max-width: 768px) {
-      }
-      @media only screen and (min-width: 768px) {
-      }
-
-      @media only screen and (max-width: 992px) {
-        #main-body {
-          padding-left: 80px;
-        }
-        #header {
-          /* width: calc(100% - 80px); */
-          width: 100%;
-        }
-        #right-section {
-          display: none;
-        }
-        #course-name {
-          display: none;
-        }
-        #hamburger-icon-container {
-        
-        display: flex;
-      }
-        #left-navbar {
-          min-width: 20px;
-          width: 70px;
-          
-        }
-        .left-navbar-option {
-          width: 100%;
-
-          margin-bottom: 2.5vh;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          padding-left: 0;
-          padding-right: 0;
-        }
-        .left-navbar-option:active {
-          border-right: solid;
-          border-width: 4px;
-          border-top-right-radius: 3px;
-          border-bottom-right-radius: 3px;
-          color: rgb(103, 118, 249);
-          /* transition: 0.2s; */
-        }
-        .left-navbar-svg-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .left-navbar-optiontext {
-          font-size: 11px;
-
-          display: flex;
-
-          align-items: center;
-          justify-content: center;
-          min-width: 56px;
-          width: 60%;
-          margin-left: 0;
-          font-weight: 400;
-          font-family: Roboto, Arial, sans-serif;
-          margin-top: 2px;
-        }
-        #dashboard-option {
-          display: flex;
-          flex-direction: column;
-
-          margin-top: 47px;
-          align-items: center;
-          /* justify-content: center; */
-        }
-        #dashboard-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #courses-option {
-          /* width: 50%; */
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-mycourses-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #schedule-option {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-schedule-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        #resources-option {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #dashboard-resources-svg {
-          width: 20px;
-        }
-        #settings-option {
-          /* width: 50%; */
-          display: flex;
-          flex-direction: column;
-          /* background-color: brown; */
-          margin-top: auto;
-          margin-bottom: 15px;
-          align-items: center;
-        }
-        #dashboard-settings-svg {
-          height: 20px;
-          margin-right: auto;
-        }
-        
-      }
-      @media only screen and (min-width: 992px) {
-      }
-      @media only screen and (min-width: 1200px) {
-      }
-    </style>
-  </head>
-  <body id="main-body">
-    <div id="header">
-      <!-- <div id="course-name">
+<body id="main-body">
+  <div id="header">
+    <!-- <div id="course-name">
         Fluid Mechanics, Bernoulli Equation,theory & it's applications.
       </div> -->
-      <div id="hamburger-icon-container">
-        <img id="hamburger-icon" src="../srcimages/hamburger_icon.svg" />
+    <div id="hamburger-icon-container">
+      <img id="hamburger-icon" src="../srcimages/hamburger_icon.svg" />
+    </div>
+    <div id="logo-container"><img id="logo-png" src="../srcimages/Detubez-logos_black.png"></div>
+    <div id="search-option">
+      <img id="search-svg" src="../srcimages/search.svg" />
+    </div>
+    <div id="notification">
+      <img id="notification-svg" src="../srcimages/bell.svg" />
+    </div>
+    <div id="avatar">
+      <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
+    </div>
+  </div>
+  <div id="left-navbar">
+    <div id="dashboard-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
       </div>
-      <div id="logo-container"><img id="logo-png" src="../srcimages/Detubez-logos_black.png"></div>
-      <div id="search-option">
-        <img id="search-svg" src="../srcimages/search.svg" />
+      <div class="left-navbar-optiontext">Dashboard</div>
+    </div>
+    <div id="courses-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
       </div>
-      <div id="notification">
-        <img id="notification-svg" src="../srcimages/bell.svg" />
+
+      <div class="left-navbar-optiontext">courses</div>
+    </div>
+    <div id="schedule-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
       </div>
-      <div id="avatar">
-        <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
+
+      <div class="left-navbar-optiontext">Schedule</div>
+    </div>
+    <div id="resources-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+      </div>
+      <div class="left-navbar-optiontext">Resources</div>
+    </div>
+    <div id="promotional-card"></div>
+    <div id="settings-option" class="left-navbar-option">
+      <div class="left-navbar-svg-container">
+        <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+      </div>
+      <div class="left-navbar-optiontext">Settings</div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div id="profile-modal">
+    <button id="close-profile-btn">X close</button>
+    <div id="image-profile-modal">
+      <img id="profile-modal-image" src="../srcimages/images-stalin-pic.jpg">
+
+    </div>
+    <div id="username-modal">@KobaKlein</div>
+    <div id="modal-name">
+      Name : Koba Klein
+    </div>
+    <div id="modal-rank">
+      Rank : 1578
+    </div>
+    <div id="modal-email">
+      Email : KobaKlein@duck.com
+    </div>
+    <div id="modal-account-open">
+      Account Opened : 16.01.2008
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+  <div id="middle-section">
+    <div id="learning-stats-header">
+      <div id="learning-stats1">
+        <div id="leaderboard-points-text">Leaderboard Points</div>
+        <div id="points" style="font-size: 22px">1421</div>
+        <div id="incremental-progress">
+          <span style="color: rgb(103, 118, 249)">+14%</span> this month
+        </div>
+      </div>
+      <div id="learning-stats2">
+        <div id="leaderboard-points-text">Learning Hours</div>
+        <div id="points" style="font-size: 22px">56</div>
+        <div id="incremental-progress">
+          <span style="color: rgb(103, 118, 249)">+11% </span>this month
+        </div>
       </div>
     </div>
-    <div id="left-navbar">
-      <div id="dashboard-option" class="left-navbar-option">
-        <div class="left-navbar-svg-container">
-          <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
-        </div>
-        <div class="left-navbar-optiontext">Dashboard</div>
+    <div id="current-course-text">Current Course</div>
+    <div id="current-course">
+      <div id="current-course-thumbnail">
+        <img
+          id="thumbnail-current-course"
+          src="../srcimages/mixkit-concentrated-boy-studying-at-home-4761-0.avif"
+        />
       </div>
-      <div id="courses-option" class="left-navbar-option">
-        <div class="left-navbar-svg-container">
-          <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+      <div id="current-lesson-description-container">
+        <div id="current-lesson-description-title">
+          Title goes here hi there xyz xyz xyz xyz xyz xyz xyz xyz
         </div>
-
-        <div class="left-navbar-optiontext">courses</div>
-      </div>
-      <div id="schedule-option" class="left-navbar-option">
-        <div class="left-navbar-svg-container">
-          <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+        <div id="current-lesson-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+          mollitia, eum et accusamus maxime laborum reiciendis facilis dolore
+          veritatis totam rerum laboriosam repellat possimus voluptas qui
+          temporibus cum soluta. Consequuntur numquam illo nemo, labore sit
+          obcaecati, debitis aliquid at maxime quam animi perspiciatis, modi
+          qui a in nihil fugiat cumque voluptates aperiam aspernatur. Numquam
+          .
         </div>
-
-        <div class="left-navbar-optiontext">Schedule</div>
-      </div>
-      <div id="resources-option" class="left-navbar-option">
-        <div class="left-navbar-svg-container">
-          <img
-            id="dashboard-resources-svg"
-            src="../srcimages/open-folder-outline-icon.svg"
-          />
+        <div id="progress-container">
+          <progress id="course-progress" value="4" max="10"></progress>
         </div>
-        <div class="left-navbar-optiontext">Resources</div>
-      </div>
-      <div id="promotional-card"></div>
-      <div id="settings-option" class="left-navbar-option">
-        <div class="left-navbar-svg-container">
-          <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
-        </div>
-        <div class="left-navbar-optiontext">Settings</div>
+        <div id="fraction-course-done">4/10 videos completed.</div>
       </div>
     </div>
+    <div id="playlist-scroll-controls">
+      <div id="allvids">Recommended for you.</div>
+      <img id="playlist-scroll-left" src="../srcimages/chevron-left.svg" />
+      <img id="playlist-scroll-right" src="../srcimages/chevron-right.svg" />
+    </div>
+    <div id="playlist-videos">
+      <!-- <div id="relative-blur"></div> -->
+      <div id="thumbnail1" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet</div>
+      </div>
+      <div id="thumbnail2" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail3" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail4" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+      </div>
+      <div id="thumbnail5" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+      </div>
+      <div id="thumbnail6" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail7" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail8" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail9" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet Anand K.</div>
+      </div>
+      <div id="thumbnail10" class="playlist-thumbnails">
+        <div class="thumbnail-image-container">
+          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        </div>
+        <div class="thumbnail-title">Lorem ipsum dolor sit amet.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="notifications-modal">
+
+  </div>
+
+
+
+  <script>
+    let profileclosebtn = document.getElementById("close-profile-btn");
+    profileclosebtn.addEventListener("click", closeprofile);
+    let profilemodal = document.getElementById("profile-modal");
+    function closeprofile() {
+      profilemodal.style.display = "none";
+
+    }
+
 
     
+    let profilemodalhidden = true;
+    function showhideprofilemodal() {
+      console.log(23);
+      if (profilemodalhidden == true) {
+        profilemodalhidden = false;
+        profilemodal.style.display = "flex";
 
 
-    <style>
-        #profile-modal{
-            height: 86vh;
-            width: 23%;
-            /* margin-top: 2vh; */
-            background-color: black;
-            position: fixed;
-            
-            top: 50px;
-            right: 2%;
-            /* right: calc(2% + 25px); */
-            overflow: auto;
-            display: flex;
-            flex-direction: column;
-            z-index: 5;
-            color: white;
-            /* display: none; */
-        }
-        #profile-pic-and-name{
-            display: flex;
-            background-color: aqua;
-            height: 9vh;
-            /* position: fixed; */
-            position: fixed;
-            width: 23%;
-            top: 11vh;
-            right: 2%;
-            z-index: 6;
-            min-height: 50px;
 
-        }
-        #profile-jpg-container{
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-            border-style: solid;
-            border-radius: 50%;
-        }
-        #profile-jpg{
-            max-width: 100%;
-            max-height: 100%;
-            vertical-align: center;
-            border-radius: 50%;
-        }
-        #notifications-modal{
-            height: 86vh;
-            width: 23%;
-            /* margin-top: 2vh; */
-            background-color: rgb(255, 213, 0);
-            position: fixed;
-            top: 11vh;
-            right: 7%;
-            /* right: calc(7% + 30px); */
-            display: none;
+      }
+      else if (profilemodalhidden != true) {
+        profilemodalhidden = true;
+        profilemodal.style.display = "none";
+      }
+      
 
-        }
-    </style>
+    }
+    let profileicon = document.getElementById("avatar");
+    profileicon.addEventListener("click", showhideprofilemodal);
 
 
-    <div id="profile-modal">
-        <div id="profile-pic-and-name">
-            <!-- <div id="profile-jpg-container"> -->
-                <img id="profile-jpg" src="../srcimages/images-stalin-pic.jpg">
-            <!-- </div> -->
-            <div id="profile-name"></div>
-            
-        </div>
-        
+  </script>
 
-    </div>
+</body>
 
-    <div id="notifications-modal">
-
-    </div>    
-    
-  </body>
 </html>
-

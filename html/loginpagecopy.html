@@ -1,476 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      #main-body {
-        padding-top: 0;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-        min-height: 2000px;
-        overflow-x: hidden;
-      }
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Handjet&family=Roboto:wght@300;500&display=swap"
+    rel="stylesheet"> -->
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #main-body {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+      /* min-height: 700px; */
+      overflow-x: hidden;
+    }
+
+    #header {
+      height: 10vh;
+      display: flex;
+      width: 100vw;
+      flex-direction: row;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      min-height: 42px;
+      /* highest */
+    }
+
+    #hdiv1 {
+      /* background-color: red; */
+      background-color: rgb(169, 178, 251);
+      width: 64%;
+      display: flex;
+      align-items: center;
+    }
+
+    #hdiv1logo {
+      height: 70%;
+    }
+
+    #hdiv2 {
+      /* background-color: yellow; */
+      background-color: rgb(169, 178, 251);
+      width: 12%;
+    }
+
+    #hdiv3 {
+      /* background-color: green; */
+      background-color: rgb(169, 178, 251);
+      width: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #about-btn {
+      width: 70%;
+      /* height: 75%; */
+      height: 35px;
+      border-radius: 4px;
+      border-style: solid;
+      background-color: rgb(233, 38, 87);
+      border-color: white;
+      border-width: 0;
+      color: white;
+    }
+
+    #about-btn:hover {
+      background-color: rgb(103, 118, 249);
+      color: white;
+      transition: 0.5s;
+      /* border-color: rgb(0, 34, 255); */
+    }
+
+    #hdiv4 {
+      /* background-color: yellow; */
+      background-color: rgb(169, 178, 251);
+      width: 12%;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+    }
+
+    #signup-btn {
+      width: 80%;
+      /* height: 75%; */
+      height: 35px;
+      border-radius: 4px;
+      border-style: solid;
+      background-color: rgb(233, 38, 87);
+      border-color: white;
+      border-width: 0;
+      color: white;
+    }
+
+    #signup-btn:hover {
+      background-color: rgb(103, 118, 249);
+      color: white;
+      transition: 0.5s;
+      /* border-color: rgb(0, 34, 255); */
+    }
+
+    #section1 {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin-top: 10vh;
+    }
+
+    #sec1-part1 {
+      width: 64%;
+      background-color: blue;
+      background: linear-gradient(to right, rgb(244, 240, 222), rgb(250, 222, 153));
+      ;
+      height: 100vh;
+      /* padding-top: 12vh; */
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #boydog-container {
+      height: 85%;
+
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      /* background: url(../srcimages/Designer.png); */
+      background: linear-gradient(to right, rgb(244, 240, 222), rgb(250, 222, 153));
+    }
+
+    #boydog-jpg {
+      max-width: 75%;
+
+      max-height: 75%;
+
+      border-radius: 6px;
+      /* margin-top: 5% */
+    }
+
+    #welcome-back {
+      position: absolute;
+      bottom: 5px;
+      font-size: 60px;
+      margin: auto;
+      font-family: "Comic Neue", cursive;
+
+    }
+
+    #sec1-part2 {
+      width: 36%;
+      /* background-color: rgb(2, 90, 90); */
+      height: 100vh;
+      /* display: flex; */
+      border-style: solid;
+      border-width: 5px;
+      /* border-radius: 6px; */
+      align-items: center;
+      border-color: rgb(0, 0, 0);
+      /* justify-content: center; */
+      background: linear-gradient(to right, rgb(250, 222, 153), rgb(244, 240, 222));
+
+    }
+
+    #login-message {
+      font-size: 50px;
+      margin: auto;
+      display: flex;
+      margin-left: 2%;
+
+
+    }
+
+    #login-form-container {
+      width: 100%;
+      /* height: 100%; */
+      /* background-color: rgb(231, 6, 6); */
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+
+    }
+
+    #form-login {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+    }
+
+    #email-input {
+      width: 96%;
+      height: 50px;
+      margin: auto;
+      flex-shrink: 0;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      border-style: solid;
+      border-radius: 6px;
+      border-color: transparent;
+
+    }
+
+    #password-input {
+      width: 96%;
+      height: 50px;
+      margin: auto;
+      flex-shrink: 0;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      border-style: solid;
+      border-radius: 6px;
+      border-color: transparent;
+    }
+
+    #login-submit {
+      width: 96%;
+      margin: auto;
+      height: 50px;
+      flex-shrink: 0;
+      margin-top: 5px;
+      background-color: rgb(233, 38, 87);
+      border-color: transparent;
+      border-radius: 6px;
+      font-size: 15px;
+      color: white;
+
+    }
+
+
+
+    #forget-password {
+      height: 50px;
+      width: 90%;
+      /* margin-left: 5%; */
+      display: flex;
+      /* justify-content: center; */
+      margin-left: 2%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: red;
+
+    }
+
+
+
+    @media only screen and (max-width: 600px) {
       #header {
-        height: 10vh;
-        display: flex;
-        width: 100vw;
-        flex-direction: row;
-        position: fixed;
-        top: 0;
-        z-index: 100;
-        /* highest */
+        height: 8vh;
       }
+
       #hdiv1 {
-        /* background-color: red; */
-        background-color: rgb(169, 178, 251);
-        width: 64%;
-        display: flex;
-        align-items: center;
+        width: 65%;
       }
-      #hdiv1logo {
-        height: 70%;
-      }
+
       #hdiv2 {
-        /* background-color: yellow; */
-        background-color: rgb(169, 178, 251);
-        width: 12%;
+        display: none;
       }
+
       #hdiv3 {
-        /* background-color: green; */
-        background-color: rgb(169, 178, 251);
-        width: 12%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #about-btn {
-        width: 70%;
-        height: 75%;
-
-        border-radius: 4px;
-        border-style: solid;
-        background-color: rgb(233, 38, 87);
-        border-color: white;
-        border-width: 0;
-        color: white;
+        display: none;
       }
 
-      #about-btn:hover {
-        background-color: rgb(103, 118, 249);
-        color: white;
-        transition: 0.5s;
-        /* border-color: rgb(0, 34, 255); */
-      }
       #hdiv4 {
-        /* background-color: yellow; */
-        background-color: rgb(169, 178, 251);
-        width: 12%;
-        display: flex;
-        /* justify-content: center; */
-        align-items: center;
+        width: 35%;
       }
-      #signup-btn {
-        width: 80%;
-        height: 75%;
-        border-radius: 4px;
-        border-style: solid;
-        background-color: rgb(233, 38, 87);
-        border-color: white;
-        border-width: 0;
-        color: white;
-      }
-      #signup-btn:hover {
-        background-color: rgb(103, 118, 249);
-        color: white;
-        transition: 0.5s;
-        /* border-color: rgb(0, 34, 255); */
-      }
+
       #section1 {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        margin-top: 10vh;
-      }
-      #sec1-part1 {
-        width: 64%;
-        background-color: blue;
-        height: 100vh;
-        /* padding-top: 12vh; */
-        display: flex;
-        justify-content: center;
         flex-direction: column;
       }
-      #welcome-back {
-        font-size: 60px;
-        margin: auto;
+
+      #sec1-part1 {
+        width: 100vw;
+        /* display: none; */
       }
+
+      #sec1-part2 {
+        width: 100%;
+
+
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
+      #hdiv1 {
+        width: 60%;
+      }
+
+      #hdiv2 {
+        display: none;
+      }
+
+      #hdiv3 {
+        width: 20%;
+      }
+
+      #hdiv4 {
+        width: 20%;
+      }
+
+      #sec1-part1 {
+        width: 55%;
+      }
+
+      #sec1-part2 {
+        width: 45%;
+      }
+    }
+
+
+    @media only screen and (min-width: 768px) {
+      #hdiv1 {
+        width: 55%;
+      }
+
+      #hdiv2 {
+        display: block;
+        width: 15%;
+      }
+
+      #hdiv3 {
+        width: 15%;
+      }
+
+      #hdiv4 {
+        width: 15%;
+      }
+
+      #sec1-part1 {
+        width: 55%;
+      }
+
+      #sec1-part2 {
+        width: 45%;
+      }
+
+
+    }
+
+    @media only screen and (min-width: 992px) {
+      #hdiv1 {
+        width: 64%;
+      }
+
+      #hdiv2 {
+        width: 12%;
+      }
+
+      #hdiv3 {
+        width: 12%;
+      }
+
+      #hdiv4 {
+        width: 12%;
+      }
+
+      #sec1-part1 {
+        width: 64%;
+      }
+
       #sec1-part2 {
         width: 36%;
-        background-color: aqua;
-        height: 100vh;
       }
-      #section2 {
-        width: 100%;
-        /* height: 40vh; */
-        background-color: rgb(145, 134, 134);
-        display: flex;
-        overflow-x: auto;
-      }
-      .sec2divs {
-        flex-shrink: 0;
-        width: 30vw;
-        height: 30vh;
+    }
+  </style>
+</head>
 
-        background-color: blanchedalmond;
-        margin-right: 2.5vw;
-        margin-left: 2.5vw;
-      }
-      #section3 {
-        width: 100%;
-        height: 50vh;
-        background-color: rgb(55, 51, 45);
-        overflow-y: auto;
-      }
-      .sec3divs {
-        width: 100%;
-        height: 15vh;
-        border-left-style: solid;
-        border-left-width: 5px;
-        margin-bottom: 1vh;
-        background-color: blue;
-      }
-      #section4 {
-        width: 100%;
-        /* height: 40vh; */
-        background-color: rgb(145, 134, 134);
-        display: flex;
-        overflow-x: auto;
-      }
-      .sec4divs {
-        flex-shrink: 0;
-        width: 30vw;
-        height: 30vh;
-
-        background-color: blanchedalmond;
-        margin-right: 2.5vw;
-        margin-left: 2.5vw;
-      }
-      #section5 {
-        width: 100%;
-        height: 40vh;
-        background-color: cornflowerblue;
-      }
-
-      @media only screen and (max-width: 600px) {
-        #header {
-          height: 8vh;
-        }
-        #hdiv1 {
-          width: 65%;
-        }
-        #hdiv2 {
-          display: none;
-        }
-        #hdiv3 {
-          display: none;
-        }
-        #hdiv4 {
-          width: 35%;
-        }
-        #section1 {
-          flex-direction: column;
-        }
-        #sec1-part1 {
-          width: 100vw;
-          display: none;
-        }
-        #sec1-part2 {
-          width: 100vw;
-        }
-      }
-
-      @media only screen and (min-width: 600px) {
-        #hdiv1 {
-          width: 60%;
-        }
-        #hdiv2 {
-          display: none;
-        }
-        #hdiv3 {
-          width: 20%;
-        }
-        #hdiv4 {
-          width: 20%;
-        }
-      }
-
-      @media only screen and (min-width: 768px) {
-        #hdiv1 {
-          width: 55%;
-        }
-        #hdiv2 {
-          display: block;
-          width: 15%;
-        }
-        #hdiv3 {
-          width: 15%;
-        }
-        #hdiv4 {
-          width: 15%;
-        }
-        #sec1-part1 {
-          width: 55%;
-        }
-        #sec1-part2 {
-          width: 45%;
-        }
-      }
-
-      @media only screen and (min-width: 992px) {
-        #hdiv1 {
-          width: 64%;
-        }
-        #hdiv2 {
-          width: 12%;
-        }
-        #hdiv3 {
-          width: 12%;
-        }
-        #hdiv4 {
-          width: 12%;
-        }
-      }
-
-      @media only screen and (min-width: 1200px) {
-      }
-
-      #flexbox-grid {
-        display: flex;
-        width: 100vw;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      .boxes1 {
-        /* background-color: red; */
-      }
-      .boxes2 {
-        /* background-color: rgb(26, 255, 0); */
-      }
-      @media only screen and (max-width: 575px) {
-        .boxes1 {
-          width: 98vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-        .boxes2 {
-          width: 98vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-      }
-      @media only screen and (min-width: 575px) {
-        .boxes1 {
-          width: 48vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-        .boxes2 {
-          width: 48vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-      }
-      @media only screen and (min-width: 768px) {
-      }
-      @media only screen and (min-width: 950px) {
-        .boxes1 {
-          width: 31vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-        .boxes2 {
-          width: 31vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-      }
-      @media only screen and (min-width: 1200px) {
-        .boxes1 {
-          width: 23vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-        .boxes2 {
-          width: 23vw;
-          margin-top: 1vh;
-          margin-left: 1vw;
-          margin-right: 1vw;
-        }
-      }
-    </style>
-  </head>
-  <body id="main-body">
-    <div id="header">
-      <div id="hdiv1">
-        <img id="hdiv1logo" src="../srcimages/Detubez-logos_black.png" />
-      </div>
-
-      <div id="hdiv2"></div>
-      <div id="hdiv3"><button id="about-btn">About</button></div>
-      <div id="hdiv4"><button id="signup-btn">Sign Up</button></div>
+<body id="main-body">
+  <div id="header">
+    <div id="hdiv1">
+      <img id="hdiv1logo" src="../srcimages/Detubez-logos_black.png" />
     </div>
 
-    <div id="section1">
-      <div id="sec1-part1">
+    <div id="hdiv2"></div>
+    <div id="hdiv3"><button id="about-btn">About</button></div>
+    <div id="hdiv4"><button id="signup-btn">Sign Up</button></div>
+  </div>
+
+
+
+  <div id="section1">
+    <div id="sec1-part1">
+      <div id="boydog-container"><img id="boydog-jpg" src="../srcimages/Designer.png">
         <div id="welcome-back">Welcome Back</div>
-        <div id="Welcome-message">Nice to see you again</div>
       </div>
 
 
-      <style>
-        #sec1-part2{
-          display: flex;
-          align-items: center;
-          justify-content: center;
+      <!-- <div id="Welcome-message">Nice to see you again</div> -->
+    </div>
 
-        }
-        .login-form{
-          width: 75%;
-          border-style: solid;
-          border-radius: 4px;
-          min-height: 300px;
-        }
-        .form-username-input{
-          height: 40px;
-        }
 
-      </style>
-      <div id="sec1-part2" >
-        <div class="login-form">
-        <form>
-          <input class="form-username-input" type="text" placeholder="Username or email" />
-          <input class="form-password-input" type="password" placeholder="password"/>
-          <input type="submit" value="Log in"/>
+
+    <div id="sec1-part2">
+
+      <div id="login-message">Log in</div>
+
+
+      <div id="login-form-container">
+        <form id="form-login">
+          <input id="email-input" type="text" placeholder="Enter your email or username" />
+          <input id="password-input" type="text" placeholder="Password" />
+          <input id="login-submit" type="submit" value="Login" />
         </form>
 
       </div>
-      <div id="forget-password"></div>
+
+      <div id="forget-password">Forgot Password ?</div>
       <div id="signup-instead"></div>
-      </div>
     </div>
-    <div id="section2">
-      <div id="sec2-part1" class="sec2divs"></div>
-      <div id="sec2-part2" class="sec2divs"></div>
-      <div id="sec2-part3" class="sec2divs"></div>
-      <div id="sec2-part4" class="sec2divs"></div>
-      <div id="sec2-part5" class="sec2divs"></div>
-      <div id="sec2-part6" class="sec2divs"></div>
-      <div id="sec2-part7" class="sec2divs"></div>
-      <div id="sec2-part8" class="sec2divs"></div>
-      <div id="sec2-part9" class="sec2divs"></div>
-      <div id="sec2-part10" class="sec2divs"></div>
-      <div id="sec2-part11" class="sec2divs"></div>
-      <div id="sec2-part12" class="sec2divs"></div>
-      <div id="sec2-part13" class="sec2divs"></div>
-      <div id="sec2-part14" class="sec2divs"></div>
-      <div id="sec2-part15" class="sec2divs"></div>
-      <div id="sec2-part16" class="sec2divs"></div>
+  </div>
+
+
+
+  <style>
+    #signup-modal {
+      z-index: 234;
+      position: fixed;
+      background-color: black;
+      color: white;
+      /* background: linear-gradient(to right,rgb(243, 0, 117),rgb(206, 75, 125)) ; */
+      top: 0;
+      /* left: 0; */
+      /* right: 0; */
+      bottom: 0;
+      /* margin: auto; */
+      overflow: auto;
+      /* display: flex; */
+      flex-direction: column;
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+      border-style: solid;
+      border-width: 3px;
+      border-color: red;
+      display: none;
+
+      /* justify-content: center; */
+
+    }
+
+    #signupmsg-closebtn {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    #signupmsg {
+      font-size: 40px;
+      margin-left: 10%;
+    }
+
+    #closebtn-container {
+      margin-left: auto;
+      margin-right: 10%;
+
+    }
+
+    #close-btn {
+      height: 40px;
+      width: 100px;
+      background-color: black;
+      border-style: solid;
+      border-color: white;
+      border-radius: 5px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #name-signup-modal {
+      height: 50px;
+      width: 80%;
+      flex-shrink: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10%;
+      border-radius: 8px;
+      border-style: solid;
+      border-color: red;
+      /* margin: auto; */
+    }
+
+    #username-signup-modal {
+      height: 50px;
+      width: 80%;
+      flex-shrink: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10%;
+      border-radius: 8px;
+      border-style: solid;
+      border-color: red;
+      /* margin: auto; */
+
+    }
+
+    #email-signup-modal {
+      height: 50px;
+      width: 80%;
+      flex-shrink: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10%;
+      border-radius: 8px;
+      border-style: solid;
+      border-color: red;
+      /* margin: auto; */
+
+    }
+
+    #phone-signup-modal {
+      height: 50px;
+      width: 80%;
+      flex-shrink: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10%;
+      border-radius: 8px;
+      border-style: solid;
+      border-color: red;
+      /* margin: auto; */
+
+    }
+
+    #submit-signup-modal {
+      height: 50px;
+      width: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 25%;
+      border-radius: 6px;
+      border-style: solid;
+      /* margin: auto; */
+
+    }
+  </style>
+
+  <div id="signup-modal">
+    <div id="signupmsg-closebtn">
+      <div id="signupmsg">Sign up</div>
+      <div id="closebtn-container"><button id="close-btn">X Close</button></div>
     </div>
 
-    <!-- <div id="section3">
-      <div id="sec3-part1" class="sec3divs"></div>
-      <div id="sec3-part2" class="sec3divs"></div>
-      <div id="sec3-part3" class="sec3divs"></div>
-      <div id="sec3-part4" class="sec3divs"></div>
-      <div id="sec3-part5" class="sec3divs"></div>
-      <div id="sec3-part6" class="sec3divs"></div>
-      <div id="sec3-part7" class="sec3divs"></div>
-      <div id="sec3-part8" class="sec3divs"></div>
-      <div id="sec3-part9" class="sec3divs"></div>
-      <div id="sec3-part10" class="sec3divs"></div>
-    </div> -->
-    <div id="scetion3-new">
-      <div></div>
-      <div></div>
-    </div>
 
-    <div id="section4">
-      <div id="sec4-part1" class="sec4divs"></div>
-      <div id="sec4-part2" class="sec4divs"></div>
-      <div id="sec4-part3" class="sec4divs"></div>
-      <div id="sec4-part4" class="sec4divs"></div>
-      <div id="sec4-part5" class="sec4divs"></div>
-      <div id="sec4-part6" class="sec4divs"></div>
-      <div id="sec4-part7" class="sec4divs"></div>
-      <div id="sec4-part8" class="sec4divs"></div>
-      <div id="sec4-part9" class="sec4divs"></div>
-      <div id="sec4-part10" class="se4divs"></div>
-      <div id="sec4-part11" class="sec4divs"></div>
-      <div id="sec4-part12" class="sec4divs"></div>
-      <div id="sec4-part13" class="sec4divs"></div>
-      <div id="sec4-part14" class="sec4divs"></div>
-      <div id="sec4-part15" class="sec4divs"></div>
-      <div id="sec4-part16" class="sec4divs"></div>
-    </div>
-    <div id="section-5">
-      <div id="sec5-part1" class="sec5divs"></div>
-      <div id="sec5-part2" class="sec5divs"></div>
-      <div id="sec5-part3" class="sec5divs"></div>
-      <div id="sec5-part4" class="sec5divs"></div>
-      <div id="sec5-part5" class="sec5divs"></div>
-      <div id="left-push"></div>
-      <div id="right-push"></div>
-    </div>
-    <div id="footer">Footer</div>
-    <div id="flexbox-grid">
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-      <div class="boxes1"><a href="#">Footer LINKS</a></div>
-      <div class="boxes2"><a href="#">Footer LINKS</a></div>
-    </div>
 
-    <script></script>
-  </body>
+    <input id="name-signup-modal" type="text" placeholder="Enter Your name" />
+    <input id="username-signup-modal" type="text" placeholder="Enter Your name" />
+    <input id="email-signup-modal" type="text" placeholder="email" />
+    <input id="phone-signup-modal" type="text" placeholder="phone" />
+
+    <input id="submit-signup-modal" type="submit" />
+    <!-- <input id="birth-day" type="date"> -->
+
+
+
+
+
+  </div>
+
+
+  <script>
+    let signupmodalhidden = true;
+    let signupmodal = document.getElementById("signup-modal");
+
+
+    function showsignupmodal() {
+      if (signupmodalhidden == true) {
+        signupmodal.style.display="flex";
+        signupmodalhidden = false;
+
+
+      }
+      else if (signupmodalhidden == false) {
+        signupmodal.style.display="none";
+        signupmodalhidden = true;
+
+
+      }
+    }
+
+    function closesignup() {
+      signupmodal.style.display="none";
+      signupmodalhidden = true;
+
+      
+    }
+
+    let signupbtn = document.getElementById("signup-btn");
+    signupbtn.addEventListener("click",showsignupmodal);
+    let closebtn = document.getElementById("close-btn");
+    closebtn.addEventListener("click",closesignup);
+
+  </script>
+</body>
+
 </html>
