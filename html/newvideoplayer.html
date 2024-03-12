@@ -988,6 +988,7 @@
 
   <script>
     let video = document.getElementById("video-mp4");
+    // console.log(Math.floor(video.duration));
     let timestr;
     let durationinsecs;
     let durationinmins;
@@ -995,6 +996,7 @@
     video.addEventListener("loadedmetadata", function () {
       timestr = document.getElementById("time-string");
       durationinsecs = Math.floor(video.duration);
+      console.log(video.duration);
 
       durationinmins = Math.floor(durationinsecs / 60);
       durationinsecsremainder = durationinsecs % 60;
@@ -1004,6 +1006,8 @@
       timestr.innerText = `00:00/${durationinmins}:${durationinsecsremainder}`;
     });
 
+
+    
 
 
 
@@ -1141,6 +1145,25 @@
     }
 
 
+    let timeseeker = document.getElementById("timeline-input");
+    timeseeker.max = Math.floor(video.duration);
+    
+    console.log(timeseeker.max);
+    // console.log(4)
+    timeseeker.addEventListener("input",skiptothis);
+    function skiptothis(){
+      console.log("skkipped");
+      // video.pause();
+      video.currentTime = timeseeker.value;
+      console.log(timeseeker.value);
+
+
+      // video.play();
+
+
+    }
+
+
     let doubtclosebtn = document.getElementById("doubt-close-button");
     doubtclosebtn.addEventListener("click", closedoubt);
     let doubtmodal = document.getElementById("ask-doubt-modal");
@@ -1213,8 +1236,15 @@
       
 
     }
+
+
+
     let profileicon = document.getElementById("avatar-container");
     profileicon.addEventListener("click", showhideprofilemodal);
+
+
+
+    
 
 
 

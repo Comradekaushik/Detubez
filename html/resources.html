@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #main-body {
+            margin: 0;
+            padding: 0;
+            padding-top: 10vh;
+            padding-left: 80px;
+            padding-right: 35%;
+        }
+
+        #header {
+            width: 100%;
+            height: 10vh;
+            background-color: rgb(90, 90, 241);
+            color: white;
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-left: 2%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        #search-bar{
+            margin-right: 30px;
+            margin-left: auto;
+            width: 20%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #search-input{
+            width: 80%;
+            /* height: 100%; */
+            min-height: 30px;
+        }
+
+        #left-navbar {
+            position: fixed;
+            left: 0;
+            top: 10vh;
+            bottom: 0;
+            background-color: aliceblue;
+            width: 80px;
+        }
+        #middle-section{
+            width: calc(65%-80px);
+            background-color: blueviolet
+        }
+        #middle-section-header{
+            width:100% ;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #file-name{
+            width: 61%;
+
+        }
+        #file-type{
+            width: 13%;
+        }
+        #file-size{
+            width: 13%;
+        }
+        #added-on{
+            width: 13%;
+        }
+        .middle-rows{
+            width:100% ;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .row-file-name{
+            width: 61%;
+
+        }
+
+        .row-file-type{
+            width: 13%;
+
+        }
+
+        .row-file-size{
+            width: 13%;
+
+        }
+
+        .row-added-on{
+            width: 13%;
+
+        }
+
+        #right-section{
+            height: 90vh;
+            width: 35%;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            background-color: aquamarine;
+            /* display: none; */
+        }
+        
+        
+    </style>
+    <title>Document</title>
+</head>
+
+<body id="main-body">
+    <div id="header">
+        <div id="Resources-title">Resources</div>
+        <div id="search-bar"><input id="search-input" type="text" placeholder="Search"/></div>
+    </div>
+
+    <div id="left-navbar"></div>
+
+    <!-- <div class="posts">
+        <div id="file-image"></div>
+        <div></div>
+    </div> -->
+
+    <div id="middle-section">
+        <div id="middle-section-header">
+            <div id="file-name">Name</div>
+            <div id="file-type">File type</div>
+            <div id="file-size">Size</div>
+            <div id="added-on"> Added</div>
+        </div>
+
+        <div id="row1" class="middle-rows">
+            <div class="row-file-name">Name lorem ipsum</div>
+            <div class="row-file-type">mp4</div>
+            <div class="row-file-size">1.2g</div>
+            <div class="row-added-on">12 jan,2012</div>
+
+        </div>
+    </div>
+
+    <div id="right-section"></div>
+
+</body>
+
+</html>
