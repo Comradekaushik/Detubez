@@ -851,27 +851,34 @@
     <div id="search-option">
       <img id="search-svg" src="../srcimages/search.svg" />
     </div>
-    <div id="notification">
+    <div id="notification" style="cursor: pointer;">
       <img id="notification-svg" src="../srcimages/bell.svg" />
     </div>
-    <div id="avatar">
+    <div id="avatar" style="cursor: pointer;">
       <img id="avatar-jpg" src="../srcimages/stalin-avatar.jpg" />
     </div>
   </div>
   <div id="left-navbar">
-    <div id="dashboard-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
-      </div>
-      <div class="left-navbar-optiontext">Dashboard</div>
-    </div>
-    <div id="courses-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
-      </div>
 
-      <div class="left-navbar-optiontext">courses</div>
-    </div>
+
+    <a href="./coursepage.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="dashboard-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+        </div>
+        <div class="left-navbar-optiontext">Dashboard</div>
+      </div>
+    </a>
+
+    <a href="./coursepage.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="courses-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+        </div>
+
+        <div class="left-navbar-optiontext">courses</div>
+      </div>
+    </a>
     <div id="schedule-option" class="left-navbar-option">
       <div class="left-navbar-svg-container">
         <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
@@ -879,12 +886,14 @@
 
       <div class="left-navbar-optiontext">Schedule</div>
     </div>
-    <div id="resources-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+    <a href="./resources.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="resources-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+        </div>
+        <div class="left-navbar-optiontext">Resources</div>
       </div>
-      <div class="left-navbar-optiontext">Resources</div>
-    </div>
+    </a>
     <div id="promotional-card"></div>
     <div id="settings-option" class="left-navbar-option">
       <div class="left-navbar-svg-container">
@@ -927,6 +936,114 @@
 
   </div>
 
+
+  <style>
+    #notification-modal {
+      display: flex;
+      position: fixed;
+      top: 10vh;
+      bottom: 0;
+      right: 0;
+      width: 35%;
+      background-color: rgb(0, 0, 0);
+      z-index: 1547;
+      overflow: auto;
+      display: none;
+      color: white;
+      /* flex-wrap: wrap; */
+      overflow: auto;
+      flex-direction: column;
+    }
+
+    #notifications {
+      /* height: calc(100%-80px); */
+      width: 96%;
+      margin: auto;
+      min-height: 50px;
+      align-items: center;
+
+    }
+
+    #close-notification-btn {
+      border: white;
+      margin-left: auto;
+      margin-right: 10px;
+      margin-top: 10px;
+      height: 40px;
+      width: 60px;
+      background-color: black;
+      border-style: solid;
+      border-radius: 6px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #notification-close-button-container {
+      width: 100%;
+      display: flex;
+      height: 80px;
+    }
+
+
+    #notification-modal::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .example {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  </style>
+
+
+  <div id="notification-modal">
+    <div id="notification-close-button-container"><button id="close-notification-btn">X close</button></div>
+
+
+
+
+
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+    <div id="notifications">
+      Your class will be at 11:00 AM
+    </div>
+
+  </div>
 
 
   <div id="middle-section">
@@ -984,71 +1101,71 @@
     </div>
 
 
-    <a href="./newvideoplayer.html" style="text-decoration: none;color: black;"> 
-    <div id="playlist-videos">
-      <!-- <div id="relative-blur"></div> -->
-      <div id="thumbnail1" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+    <a href="./newvideoplayer.html" style="text-decoration: none;color: black;">
+      <div id="playlist-videos">
+        <!-- <div id="relative-blur"></div> -->
+        <div id="thumbnail1" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Compressible versus incompressible flow</div>
         </div>
-        <div class="thumbnail-title">Compressible versus incompressible flow</div>
-      </div>
-      <div id="thumbnail2" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail2" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Newtonian versus non-Newtonian fluids</div>
         </div>
-        <div class="thumbnail-title">Newtonian versus non-Newtonian fluids</div>
-      </div>
-      <div id="thumbnail3" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail3" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Inviscid versus viscous versus Stokes flow</div>
         </div>
-        <div class="thumbnail-title">Inviscid versus viscous versus Stokes flow</div>
-      </div>
-      <div id="thumbnail4" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail4" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Compressible versus incompressible flow</div>
         </div>
-        <div class="thumbnail-title">Compressible versus incompressible flow</div>
-      </div>
-      <div id="thumbnail5" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail5" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Steady versus unsteady flow</div>
         </div>
-        <div class="thumbnail-title">Steady versus unsteady flow</div>
-      </div>
-      <div id="thumbnail6" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail6" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Laminar versus turbulent flow</div>
         </div>
-        <div class="thumbnail-title">Laminar versus turbulent flow</div>
-      </div>
-      <div id="thumbnail7" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail7" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Reactive versus non-reactive flows</div>
         </div>
-        <div class="thumbnail-title">Reactive versus non-reactive flows</div>
-      </div>
-      <div id="thumbnail8" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail8" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Magnetohydrodynamics</div>
         </div>
-        <div class="thumbnail-title">Magnetohydrodynamics</div>
-      </div>
-      <div id="thumbnail9" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail9" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Relativistic fluid dynamics</div>
         </div>
-        <div class="thumbnail-title">Relativistic fluid dynamics</div>
-      </div>
-      <div id="thumbnail10" class="playlist-thumbnails">
-        <div class="thumbnail-image-container">
-          <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+        <div id="thumbnail10" class="playlist-thumbnails">
+          <div class="thumbnail-image-container">
+            <img class="thumbnail-jpg" src="../srcimages/Comrade Stalin.jpg" />
+          </div>
+          <div class="thumbnail-title">Conclusion</div>
         </div>
-        <div class="thumbnail-title">Conclusion</div>
       </div>
-    </div>
-  </a>
+    </a>
   </div>
 
 
@@ -1233,6 +1350,47 @@
     }
     playlistbuttonleft.addEventListener("click", scrollleft);
     playlistbuttonright.addEventListener("click", scrollright);
+
+
+
+
+
+
+
+
+
+
+
+
+    let notificationclosebtn = document.getElementById("close-notification-btn");
+    notificationclosebtn.addEventListener("click", closenotification);
+    let notificationmodal = document.getElementById("notification-modal");
+    function closenotification() {
+      notificationmodal.style.display = "none";
+
+    }
+
+
+
+    let notificationmodalhidden = true;
+    function showhidenotificationmodal() {
+      console.log(23);
+      if (notificationmodalhidden == true) {
+        notificationmodalhidden = false;
+        notificationmodal.style.display = "flex";
+
+
+
+      }
+      else if (notificationmodalhidden != true) {
+        notificationmodalhidden = true;
+        notificationmodal.style.display = "none";
+      }
+
+
+    }
+    let notificationicon = document.getElementById("notification");
+    notificationicon.addEventListener("click", showhidenotificationmodal);
 
 
   </script>

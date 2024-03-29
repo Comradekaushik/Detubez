@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #main-body{
+            padding: 0;
+            margin: 0;
+            
+        }
+        #header{
+            height: 10vh;
+            background-color: black;
+
+        }
+        #signup-div{
+            min-height: 100vh;
+            width:100%;
+            background-color: green;
+            display: none;
+            position: fixed;
+            z-index: 100;
+            top:0;
+            overflow: auto;
+            
+            /*highest*/
+        }
+        #form{
+            width:20vw;
+            height:120vh;
+            background-color: black;
+        }
+    </style>
+</head>
+<body id="main-body">
+    <div id="header"></div>
+    <div id="signup-setup">
+        <div id="left-info"></div>
+        <div id="right-login-form">
+            <button id="signup-button">sign up</button>
+        </div>
+    </div>
+
+    <div id="signup-div">
+        <div id="form"></div>
+    </div>
+    <script>
+        let signupbtn = document.getElementById("signup-button");
+        signupbtn.addEventListener("click",popsignupform);
+
+        function popsignupform(){
+            document.getElementById("signup-div").style.display="block";
+
+        }
+        
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+        box-sizing: border-box;
+      }
+      #main-body {
+        padding: 0;
+        margin: 0;
+        padding-top: 10vh;
+        padding-left: 18%;
+        font-family: Arial, sans-serif;
+      }
+        #left-navbar {
+        height: 100vh;
+        width: 18%;
+        background-color: rgb(246, 248, 251);
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .left-navbar-optiontext{
+        font-size: 12px;
+        /* margin-left: auto; */
+        display: flex;
+        /* justify-content: left; */
+        align-items: center;
+        min-width: 56px;
+        width: 60%;
+      }
+      #dashboard-option{
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+
+      }
+      #dashboard-svg{
+        height: 20px;
+        margin-right: auto;
+      }
+
+      #courses-option{
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+
+      }
+      #dashboard-mycourses-svg{
+        height: 20px;
+        margin-right: auto;
+
+      }
+      #schedule-option{
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+
+      }
+      #dashboard-schedule-svg{
+        height: 20px;
+        margin-right: auto;
+
+      }
+      #resources-option{
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+
+      }
+      #dashboard-resources-svg{
+        /* height: 20px; */
+        width: 20px;
+        margin-right: auto;
+
+      }
+      #settings-option{
+        /* width: 50%; */
+        display: flex;
+        flex-direction: row;
+
+      }
+      #dashboard-settings-svg{
+        height: 20px;
+        margin-right: auto;
+
+      }
+
+
+
+      .left-navbar-option{
+        width: 100%;
+        padding-left: 12.5%;
+        padding-right: 25%;
+        border-right: solid;
+        border-width: 3px;
+
+      }
+    </style>
+</head>
+<body>
+    <div id="left-navbar">
+        <div id="dashboard-option" class="left-navbar-option">
+          <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+          <div class="left-navbar-optiontext">Dashboard</div>
+        </div>
+        <div id="courses-option" class="left-navbar-option">
+          <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+          <div class="left-navbar-optiontext">My courses</div>
+        </div>
+        <div id="schedule-option" class="left-navbar-option">
+          <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+          <div class="left-navbar-optiontext">Schedule</div>
+        </div>
+        <div id="resources-option" class="left-navbar-option">
+          <img
+            id="dashboard-resources-svg"
+            src="../srcimages/open-folder-outline-icon.svg"
+          />
+          <div class="left-navbar-optiontext">Resources</div>
+        </div>
+        <div id="promotional-card"></div>
+        <div id="settings-option" class="left-navbar-option">
+          <img id="dashboard-settings-svg" src="../srcimages/settings.svg" />
+          <div class="left-navbar-optiontext">Settings</div>
+        </div>
+      </div>
+    
+</body>
+</html>

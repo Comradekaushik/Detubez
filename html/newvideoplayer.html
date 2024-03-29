@@ -559,6 +559,7 @@
 
 
     }
+
     #profile-modal {
       background-color: rgb(0, 0, 0);
       width: 35%;
@@ -633,7 +634,8 @@
       justify-content: center;
       align-items: center;
     }
-    #close-profile-btn{
+
+    #close-profile-btn {
       height: 30px;
       min-width: 70px;
       /* margin-left: 15px; */
@@ -917,32 +919,45 @@
 
 
   <div id="left-navbar">
-    <div id="dashboard-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
-      </div>
-      <div class="left-navbar-optiontext">Dashboard</div>
-    </div>
-    <div id="courses-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
-      </div>
 
-      <div class="left-navbar-optiontext">courses</div>
-    </div>
-    <div id="schedule-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
-      </div>
 
-      <div class="left-navbar-optiontext">Schedule</div>
-    </div>
-    <div id="resources-option" class="left-navbar-option">
-      <div class="left-navbar-svg-container">
-        <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+    <a href="./newhome.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="dashboard-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-svg" src="../srcimages/dashboard.svg" />
+        </div>
+        <div class="left-navbar-optiontext">Dashboard</div>
       </div>
-      <div class="left-navbar-optiontext">Resources</div>
-    </div>
+    </a>
+
+    <a href="./Coursepage.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="courses-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-mycourses-svg" src="../srcimages/save.svg" />
+        </div>
+
+        <div class="left-navbar-optiontext">courses</div>
+      </div>
+    </a>
+
+    <a href="./resources.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="schedule-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-schedule-svg" src="../srcimages/calendar.svg" />
+        </div>
+
+        <div class="left-navbar-optiontext">Schedule</div>
+      </div>
+    </a>
+
+    <a href="./resources.html" style="text-decoration: none;color: black; width: 100%;">
+      <div id="resources-option" class="left-navbar-option">
+        <div class="left-navbar-svg-container">
+          <img id="dashboard-resources-svg" src="../srcimages/open-folder-outline-icon.svg" />
+        </div>
+        <div class="left-navbar-optiontext">Resources</div>
+      </div>
+    </a>
     <div id="promotional-card"></div>
     <div id="settings-option" class="left-navbar-option">
       <div class="left-navbar-svg-container">
@@ -954,7 +969,7 @@
 
 
 
-  
+
 
 
 
@@ -987,7 +1002,7 @@
 
 
   <script>
-    let video = document.getElementById("video-mp4");
+    var video = document.getElementById("video-mp4");
     // console.log(Math.floor(video.duration));
     let timestr;
     let durationinsecs;
@@ -1007,7 +1022,7 @@
     });
 
 
-    
+
 
 
 
@@ -1067,6 +1082,7 @@
     video.addEventListener("ended", function () {
       playorpauseicon.src = "../srcimages/replay.svg";
       video.currentTime = 0; // Rewind to the beginning
+      timeseeker.value=0;
     });
     let volumeonofficon = document.getElementById("volumeonoffimage");
 
@@ -1144,21 +1160,25 @@
       video.playbackRate = 2;
     }
 
-
+    var video1 = document.getElementById("video-mp4");
     let timeseeker = document.getElementById("timeline-input");
-    timeseeker.max = Math.floor(video.duration);
-    
+    console.log(video1);
+    console.log(video1.duration);
+    timeseeker.max = Math.floor(video1.duration);
+    timeseeker.max = 215;
+
+
     console.log(timeseeker.max);
-    // console.log(4)
-    timeseeker.addEventListener("input",skiptothis);
-    function skiptothis(){
-      console.log("skkipped");
-      // video.pause();
+    
+    timeseeker.addEventListener("input", skiptothis);
+    function skiptothis() {
+      // console.log("skkipped");
+      
       video.currentTime = timeseeker.value;
-      console.log(timeseeker.value);
+      // console.log(timeseeker.value);
 
 
-      // video.play();
+      
 
 
     }
@@ -1218,7 +1238,7 @@
     }
 
 
-    
+
     let profilemodalhidden = true;
     function showhideprofilemodal() {
       console.log(23);
@@ -1233,7 +1253,7 @@
         profilemodalhidden = true;
         profilemodal.style.display = "none";
       }
-      
+
 
     }
 
@@ -1244,7 +1264,7 @@
 
 
 
-    
+
 
 
 
